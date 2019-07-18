@@ -20,12 +20,12 @@ class CreatePersonTable extends Migration
             $table->string('lastname');
             $table->unsignedBigInteger('companyid')->nullable();
             $table->unsignedBigInteger('user');
-            $table->string('jobtitle');
-            $table->string('profiletext');
-            $table->string('profileimage');
-            $table->tinyInteger('language');
-            $table->string('interestedin');
-            $table->string('canprovide');
+            $table->string('jobtitle')->nullable();
+            $table->string('profiletext')->nullable();
+            $table->string('profileimage')->nullable();
+            $table->tinyInteger('language')->nullable();
+            $table->string('interestedin')->nullable();
+            $table->string('canprovide')->nullable();
             $table->timestamps();
         });
     }

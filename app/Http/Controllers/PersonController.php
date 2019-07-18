@@ -7,6 +7,28 @@ use Illuminate\Http\Request;
 
 class PersonController extends Controller
 {
+
+    protected $rules =  [
+        'firstname' => ['required', 'string', 'max:255'],
+        'lastname' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'jobtitle' => ['required', 'string', 'max:255'],
+        'profiletext' => ['required', 'string', 'max:255'],
+        'profileimage' => ['image', 'mimes:jpeg,jpg,png'],
+        'language' => ['required', 'integer'],
+        'interestedin' => ['required', 'string', 'max:255'],
+        'canprovide' => ['required', 'string', 'max:255']
+    ];
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -64,12 +86,29 @@ class PersonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person $person)
+    public function update(Request $request)
     {
-        //
+        return view('person.update',['user'=>$request->user()]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeupdate(Request $request)
+    {
+
+        if($request->isMethod('patch'))
+        {
+            $this->rules['email'] = 'required|string|email|max:255|unique:users,id,' . $request->user()->id;
+        }
+        $this->validate($request,$rules);
+        dd($request);
+        return view('person.update',['user'=>$request->user()]);
     }
 
     /**
