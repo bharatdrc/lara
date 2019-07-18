@@ -27,7 +27,8 @@ class AddForiegnToCompanyTable extends Migration
     public function down()
     {
         Schema::table('company', function (Blueprint $table) {
-            $table->dropForeign(['address','invoiceaddress']);
+            $table->dropForeign(['address']);
+            $table->dropForeign(['invoiceaddress']);
         });
     }
 }
