@@ -16,7 +16,7 @@
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname')?old('firstname'):$user->person->firstname }}" required autocomplete="firstname" autofocus>
+                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname')?old('firstname'):$user->person->firstname }}" autocomplete="firstname" autofocus>
 
                                 @error('firstname')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">Last Name</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname')?old('lastname'):$user->person->lastname }}" required autocomplete="lastname" autofocus>
+                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname')?old('lastname'):$user->person->lastname }}" autocomplete="lastname" autofocus>
 
                                 @error('lastname')
                                     <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                             <label for="jobtitle" class="col-md-4 col-form-label text-md-right">Job Title</label>
 
                             <div class="col-md-6">
-                                <input id="jobtitle" type="text" class="form-control @error('jobtitle') is-invalid @enderror" name="jobtitle" value="{{ old('jobtitle')?old('jobtitle'):$user->person->jobtitle }}" required autocomplete="jobtitle">
+                                <input id="jobtitle" type="text" class="form-control @error('jobtitle') is-invalid @enderror" name="jobtitle" value="{{ old('jobtitle')?old('jobtitle'):$user->person->jobtitle }}" autocomplete="jobtitle">
 
                                 @error('jobtitle')
                                     <span class="invalid-feedback" role="alert">
@@ -84,7 +84,7 @@
                             <div class="col-md-6">
 
                                  <input type="file" id="profileimage" class="form-control @error('profileimage') is-invalid @enderror" name="profileimage">
-
+                                 <img class="rounded-circle" src="/storage/profileimage/{{ $user->person->profileimage }}" />
                                 @error('profileimage')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -97,8 +97,8 @@
 
                             <div class="col-md-6">
                                 <select name="language" id="language" class="form-control @error('language') is-invalid @enderror">
-                                    <option value="0">EN</option>
-                                    <option value="1">DE</option>
+                                    <option value="0" @if((int) old('language')?old('language'):$user->person->language === 0) selected @endif >EN</option>
+                                    <option value="1" @if((int) old('language')?old('language'):$user->person->language === 1) selected @endif >DE</option>
                                 </select>
                                 @error('language')
                                     <span class="invalid-feedback" role="alert">

@@ -14,7 +14,7 @@ class PersonController extends Controller
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'jobtitle' => ['required', 'string', 'max:255'],
         'profiletext' => ['required', 'string', 'max:255'],
-        'profileimage' => ['image', 'mimes:jpeg,jpg,png'],
+        'profileimage' => ['required','image', 'mimes:jpeg,jpg,png'],
         'language' => ['required', 'integer'],
         'interestedin' => ['required', 'string', 'max:255'],
         'canprovide' => ['required', 'string', 'max:255']
@@ -101,14 +101,44 @@ class PersonController extends Controller
      */
     public function storeupdate(Request $request)
     {
-
         if($request->isMethod('patch'))
         {
             $this->rules['email'] = 'required|string|email|max:255|unique:users,id,' . $request->user()->id;
         }
-        $this->validate($request,$rules);
-        dd($request);
-        return view('person.update',['user'=>$request->user()]);
+        $person = Person::where('user', $request->user()->id)->get()->first();
+        
+        if(isset($person->profileimage)){
+            
+            $this->rules['profileimage'] = 'image|mimes:jpeg,jpg,png';
+            $profileimageName = $person->profileimage;
+        }
+
+        $this->validate($request,$this->rules);
+        
+        if ($request->hasFile('profileimage') && $request->file('profileimage')->isValid()) {
+            $profileimageName = $request->user()->id.'_avatar'.time().'.'.request()->profileimage->getClientOriginalExtension();
+            $path = $request->file('profileimage')->storeAs(
+                'profileimage', $profileimageName
+            );
+        }
+        
+        $person->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'jobtitle' => $request->jobtitle,
+            'profiletext' => $request->profiletext,
+            'profileimage' => $profileimageName,
+            'language' => $request->language,
+            'interestedin' =>  $request->interestedin,
+            'canprovide' => $request->canprovide,
+        ]);
+
+        $user = $request->user();
+        $user->email = $request->email;
+        $user->save();
+
+        return back()
+            ->with('success','You have successfully upload image.');
     }
 
     /**
