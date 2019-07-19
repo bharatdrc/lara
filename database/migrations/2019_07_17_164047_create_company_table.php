@@ -19,8 +19,6 @@ class CreateCompanyTable extends Migration
             $table->unsignedBigInteger('address');
             $table->unsignedBigInteger('invoiceaddress');
             $table->timestamps();
-
-            
         });
     }
 
@@ -31,7 +29,6 @@ class CreateCompanyTable extends Migration
      */
     public function down()
     {
-        
         Schema::dropIfExists('company');
     }
 }

@@ -19,6 +19,7 @@ class PersonController extends Controller
         'interestedin' => ['required', 'string', 'max:255'],
         'canprovide' => ['required', 'string', 'max:255']
     ];
+
     /**
      * Create a new controller instance.
      *
@@ -106,22 +107,22 @@ class PersonController extends Controller
             $this->rules['email'] = 'required|string|email|max:255|unique:users,id,' . $request->user()->id;
         }
         $person = Person::where('user', $request->user()->id)->get()->first();
-        
+
         if(isset($person->profileimage)){
-            
+
             $this->rules['profileimage'] = 'image|mimes:jpeg,jpg,png';
             $profileimageName = $person->profileimage;
         }
 
         $this->validate($request,$this->rules);
-        
+
         if ($request->hasFile('profileimage') && $request->file('profileimage')->isValid()) {
             $profileimageName = $request->user()->id.'_avatar'.time().'.'.request()->profileimage->getClientOriginalExtension();
             $path = $request->file('profileimage')->storeAs(
                 'profileimage', $profileimageName
             );
         }
-        
+
         $person->update([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,

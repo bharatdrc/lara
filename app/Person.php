@@ -21,4 +21,12 @@ class Person extends Model
     protected $fillable = [
         'firstname','lastname','email','jobtitle','profiletext','profileimage','language','interestedin','canprovide'
     ];
+
+     /**
+     * Get the company record associated with the person.
+     */
+    public function company()
+    {
+    	return $this->belongsTo('App\Company');
+    }
 }
