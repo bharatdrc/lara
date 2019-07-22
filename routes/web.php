@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/login', 'HomeController@index')->name('login');
+Route::get('/dashboard', 'PersonController@index')->name('dashboard');
 Route::get('/updateprofile', 'PersonController@update')->name('updateprofile');
 Route::patch('/stoteprofile', 'PersonController@storeupdate')->name('storeupdate');
 Route::get('/addcompany', 'CompanyController@create')->name('addcompany');
