@@ -102,8 +102,7 @@ class CompanyController extends Controller
         $person->companyid = $company->id;
         $person->save();
 
-        return back()
-            ->with('success','company created');
+        return redirect('dashboard')->with('success','company created');
 
 
     }
@@ -127,9 +126,9 @@ class CompanyController extends Controller
      */
     public function edit(Request $request)
     {
-       
+
         $company = $request->user()->person->company;
-        
+
         return view('company.edit',['company'=>$company]);
     }
 
@@ -142,9 +141,9 @@ class CompanyController extends Controller
      */
     public function update(Request $request)
     {
-        
+
         $company = $request->user()->person->company;
-        
+
         if($request->isMethod('patch'))
         {
             $this->rules['companyname'] = 'required|string|max:255|unique:company,id,' . $company->id;
@@ -186,8 +185,7 @@ class CompanyController extends Controller
         $person->companyid = $company->id;
         $person->save();
 
-        return back()
-            ->with('success','company created');
+        return redirect('dashboard')->with('success','company updated');
     }
 
     /**

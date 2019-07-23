@@ -52,6 +52,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('updateprofile') }}"> Update Profile</a>
                             </li>
+
                             @if (Auth::user()->person->company)
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('editcompany') }}"> Update Company</a>
@@ -86,6 +87,16 @@
         </nav>
 
         <main class="py-4">
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                @if (session('warning'))
+                    <div class="alert alert-warning">
+                        {{ session('warning') }}
+                    </div>
+                @endif
             @yield('content')
         </main>
     </div>

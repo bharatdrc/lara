@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserRegistration;
 
 class RegisterController extends Controller
 {
@@ -75,6 +77,8 @@ class RegisterController extends Controller
         $person->lastname = $data['lastname'];
         $person->user = $user->id;
         $person->save();
+
+       // Mail::to($user->email)->send(new UserRegistration($user));
 
         return $user;
 
