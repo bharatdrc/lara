@@ -30,4 +30,20 @@ class Company extends Model
     {
         return $this->hasMany('App\Person','companyid');
     }
+
+    /**
+     * The person that belong to the country.
+     */
+    public function mainAddress()
+    {
+        return $this->BelongsTo('App\Address','address');
+    }
+
+    /**
+     * The person that belong to the country.
+     */
+    public function billingAddress()
+    {
+        return $this->BelongsTo('App\Address','invoiceaddress');
+    }
 }

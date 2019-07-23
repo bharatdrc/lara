@@ -49,9 +49,22 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('updateprofile') }}"> Update Profile</a>
+                            </li>
+                            @if (Auth::user()->person->company)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('editcompany') }}"> Update Company</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('addcompany') }}"> Add Company</a>
+                                </li>
+
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->person->firstname }} {{ Auth::user()->person->lastname }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

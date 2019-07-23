@@ -99,7 +99,7 @@ class CompanyController extends Controller
         ]);
 
         $person = $request->user()->person;
-        $person->company = $company->id;
+        $person->companyid = $company->id;
         $person->save();
 
         return back()
@@ -127,9 +127,10 @@ class CompanyController extends Controller
      */
     public function edit(Request $request)
     {
+       
         $company = $request->user()->person->company;
-        dd($company);
-        return view('company.edit');
+        
+        return view('company.edit',['company'=>$company]);
     }
 
     /**
@@ -139,9 +140,54 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request)
     {
-        //
+        
+        $company = $request->user()->person->company;
+        
+        if($request->isMethod('patch'))
+        {
+            $this->rules['companyname'] = 'required|string|max:255|unique:company,id,' . $company->id;
+        }
+        if($request->has('isbillingaddress'))
+        {
+            $this->rules = array_merge($this->rules,$this->billingRules);
+        }
+
+        $this->validate($request,$this->rules);
+
+        $address = $company->mainAddress->update([
+            'housenumber' => $request->housenumber,
+            'street' => $request->street,
+            'city' => $request->city,
+            'country' => $request->country,
+            'postalcode' => $request->postalcode,
+            'additionalinfo' => $request->additionalinfo,
+        ]);
+
+        if($request->has('isbillingaddress'))
+        {
+           $billingaddress = $company->billingAddress->update([
+                'housenumber' => $request->billinghousenumber,
+                'street' => $request->billingstreet,
+                'city' => $request->billingcity,
+                'country' => $request->billingcountry,
+                'postalcode' => $request->billingpostalcode,
+            ]);
+        }
+
+        $company->update([
+            'companyname' => $request->companyname,
+            'address' => $company->mainAddress->id,
+            'invoiceaddress' => isset($company->billingAddress) ? $company->billingAddress->id:$company->mainAddress->id,
+        ]);
+
+        $person = $request->user()->person;
+        $person->companyid = $company->id;
+        $person->save();
+
+        return back()
+            ->with('success','company created');
     }
 
     /**

@@ -37,7 +37,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-        //
+        return view('person.dashboard');
     }
 
     /**

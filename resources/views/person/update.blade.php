@@ -84,7 +84,9 @@
                             <div class="col-md-6">
 
                                  <input type="file" id="profileimage" class="form-control @error('profileimage') is-invalid @enderror" name="profileimage">
-                                 <img class="rounded-circle" src="/storage/profileimage/{{ $user->person->profileimage }}" />
+                                 @if($user->person->profileimage)
+                                    <img class="rounded-circle" src="/storage/profileimage/{{ $user->person->profileimage }}" width="100" height="100"/>
+                                 @endif
                                 @error('profileimage')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
