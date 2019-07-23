@@ -28,6 +28,6 @@ class Company extends Model
      */
     public function person()
     {
-        return $this->hasMany('App\Person','company');
+        return $this->hasMany('App\Person','companyid');
     }
 }
