@@ -38,12 +38,19 @@ class CompanyController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->has('q')){
+            $companies = Company::where('companyname','like','%'.$request->q.'%')->paginate(1);
+            $companies->appends(['q' => $request->q]);
+        }else{
+            $companies = Company::paginate(1);
+        }
+        
+        return view('company.managecompany',['companies'=>$companies]);
     }
 
     /**
@@ -122,12 +129,14 @@ class CompanyController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(Request $request,Company $company=null)
     {
 
-        $company = $request->user()->person->company;
+        if(!$company)
+            $company = $request->user()->person->company;
 
         return view('company.edit',['company'=>$company]);
     }
@@ -139,10 +148,11 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request,Company $company=null)
     {
-
-        $company = $request->user()->person->company;
+        
+        if(!$company)
+            $company = $request->user()->person->company;
 
         if($request->isMethod('patch'))
         {
@@ -181,9 +191,7 @@ class CompanyController extends Controller
             'invoiceaddress' => isset($company->billingAddress) ? $company->billingAddress->id:$company->mainAddress->id,
         ]);
 
-        $person = $request->user()->person;
-        $person->companyid = $company->id;
-        $person->save();
+       
 
         return redirect('dashboard')->with('success','company updated');
     }

@@ -18,10 +18,15 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/login', 'HomeController@index')->name('login');
-Route::get('/dashboard', 'PersonController@index')->name('dashboard')->middleware('verified');;
-Route::get('/updateprofile', 'PersonController@update')->name('updateprofile')->middleware('verified');;
-Route::patch('/stoteprofile', 'PersonController@storeupdate')->name('storeupdate')->middleware('verified');;
-Route::get('/addcompany', 'CompanyController@create')->name('addcompany')->middleware('verified');;
-Route::post('/storecompany', 'CompanyController@store')->name('storecompany')->middleware('verified');;
-Route::get('/editcompany', 'CompanyController@edit')->name('editcompany')->middleware('verified');;
-Route::patch('/updatecompany', 'CompanyController@update')->name('updatecompany')->middleware('verified');;
+Route::get('/dashboard', 'PersonController@index')->name('dashboard')->middleware('verified');
+Route::get('/updateprofile', 'PersonController@update')->name('updateprofile')->middleware('verified');
+Route::patch('/stoteprofile', 'PersonController@storeupdate')->name('storeupdate')->middleware('verified');
+
+Route::get('/addcompany', 'CompanyController@create')->name('addcompany')->middleware('verified');
+Route::post('/storecompany', 'CompanyController@store')->name('storecompany')->middleware('verified');
+Route::get('/editcompany/{company?}', 'CompanyController@edit')->name('editcompany')->middleware('verified');
+Route::patch('/updatecompany/{company?}', 'CompanyController@update')->name('updatecompany')->middleware('verified');
+
+Route::any('/managecompany', 'CompanyController@index')->name('managecompany')->middleware('verified');
+
+
