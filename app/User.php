@@ -41,4 +41,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne('App\Person','user');
     }
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Roles');
+    }
 }

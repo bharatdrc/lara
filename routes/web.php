@@ -29,4 +29,11 @@ Route::patch('/updatecompany/{company?}', 'CompanyController@update')->name('upd
 
 Route::any('/managecompany', 'CompanyController@index')->name('managecompany')->middleware('verified');
 
+Route::get('/listroles', 'Auth\RolesController@index')->name('listroles')->middleware('verified');
+Route::get('/editroles/{user}', 'Auth\RolesController@edit')->name('editroles')->middleware('verified');
+Route::patch('/updateroles/{user}', 'Auth\RolesController@update')->name('updateroles')->middleware('verified');
+
+Route::get('/createroles', 'Auth\RolesController@create')->name('createroles')->middleware('verified');
+Route::post('/storerole', 'Auth\RolesController@store')->name('storerole')->middleware('verified');
+
 
