@@ -9,15 +9,7 @@ class RolesController extends \App\Http\Controllers\Controller
 {
 
     protected $rules =  [
-        'firstname' => ['required', 'string', 'max:255'],
-        'lastname' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'jobtitle' => ['required', 'string', 'max:255'],
-        'profiletext' => ['required', 'string', 'max:255'],
-        'profileimage' => ['required','image', 'mimes:jpeg,jpg,png'],
-        'language' => ['required', 'integer'],
-        'interestedin' => ['required', 'string', 'max:255'],
-        'canprovide' => ['required', 'string', 'max:255']
+        'name' => ['required', 'string', 'max:255', 'unique:roles'],
     ];
 
     /**
@@ -60,7 +52,12 @@ class RolesController extends \App\Http\Controllers\Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request,$this->rules);
+
+        \App\Roles::create([
+            'name' => $request->name
+        ]);
+        return back()->with('success','Role Created');
     }
 
     /**
@@ -83,18 +80,34 @@ class RolesController extends \App\Http\Controllers\Controller
     public function edit(\App\User $user)
     {
         $roles = \App\Roles::all();
-        return view('auth.editroles',['user'=>$user,'roles'=>$roles]);
+        $assignRoles = $user->roles->pluck('id')->all();
+
+        return view('auth.editroles',['user'=>$user,'roles'=>$roles,'assignRoles'=>$assignRoles]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, \App\User $user)
     {
-        return view('person.update',['user'=>$request->user()]);
+
+        if($request->isMethod('patch'))
+        {
+            $rules['roles'] = 'required|array|min:1';
+        }
+        $this->validate($request,$rules);
+
+        $user->roles()->detach();
+
+        foreach ($request->roles as $roleId) {
+             $user->roles()->attach($roleId);
+        }
+
+        return back()->with('success','Roles assign');
     }
 
     /**
@@ -105,10 +118,12 @@ class RolesController extends \App\Http\Controllers\Controller
      */
     public function storeupdate(Request $request)
     {
+        dd($request);
         if($request->isMethod('patch'))
         {
-            $this->rules['email'] = 'required|string|email|max:255|unique:users,id,' . $request->user()->id;
+            $rules['roles'] = 'required|string';
         }
+
         $person = Person::where('user', $request->user()->id)->get()->first();
 
         if(isset($person->profileimage)){

@@ -4,13 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        	
+
            	<table class="table table-striped">
 	            <thead>
 	                <tr>
 	                    <th>Name</th>
-	                    
-	                    
+
+
 	                </tr>
 	            </thead>
 	            <tbody>
@@ -53,7 +53,7 @@
                         </div>
                     </form>
                 </div>
-			
+
         </div>
     </div>
 </div>

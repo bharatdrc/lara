@@ -22,10 +22,10 @@
                             <label for="housenumber" class="col-md-4 col-form-label text-md-right">Roles</label>
 
                             <div class="col-md-6">
-                                
-                                <select name="roles" class="form-control @error('roles') is-invalid @enderror" multiple>
+
+                                <select name="roles[]" class="form-control @error('roles') is-invalid @enderror" multiple>
                                   @foreach($roles as $role)
-                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                    <option value="{{$role->id}}" @if(in_array($role->id,$assignRoles)) selected @endif >{{$role->name}}</option>
                                   @endforeach
                                 </select>
 
@@ -36,7 +36,7 @@
                                 @enderror
                             </div>
                         </div>
-                                                
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
