@@ -46,4 +46,12 @@ class Company extends Model
     {
         return $this->BelongsTo('App\Address','invoiceaddress');
     }
+
+    /**
+     * The person that belong to the country.
+     */
+    public function events()
+    {
+        return $this->hasMany('App\Event','id');
+    }
 }

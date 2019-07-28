@@ -13,7 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+         'App\Roles' => 'App\Policies\RolesPolicy',
+         'App\User' => 'App\Policies\UserPolicy',
     ];
 
     /**
@@ -25,6 +26,36 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::before(function ($user, $ability) {
+            if(in_array('Admin',$user->roles->pluck('name')->all())){
+                return true;
+            }
+        });
+        
+        Gate::define('rolesAccess', function ($user) {
+            if(in_array('Admin',$user->roles->pluck('name')->all())){
+                return true;
+            }
+        });
+
+        Gate::define('companyAccess', function ($user) {
+            if(in_array('CompanyAdmin',$user->roles->pluck('name')->all())){
+                return true;
+            }
+        });
+
+        Gate::define('manageCompanyAccess', function ($user) {
+            if(in_array('Admin',$user->roles->pluck('name')->all())){
+                return true;
+            }
+        });
+
+        Gate::define('managePackageAccess', function ($user) {
+            if(in_array('Admin',$user->roles->pluck('name')->all())){
+                return true;
+            }
+        });
+
+        
     }
 }

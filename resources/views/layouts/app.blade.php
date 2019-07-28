@@ -52,26 +52,68 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('updateprofile') }}"> Update Profile</a>
                             </li>
-
-                            @if (Auth::user()->person->company)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('editcompany') }}"> Update Company</a>
-                                </li>
-                            @else
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('addcompany') }}"> Add Company</a>
-                                </li>
-
-                            @endif
+                            @can('companyAccess')
+                                @if (Auth::user()->person->company)
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('editcompany') }}"> Update Company</a>
+                                    </li>
+                                @else
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('addcompany') }}"> Add Company</a>
+                                    </li>
+                                @endif
+                            @endcan
+                            @can('manageCompanyAccess')
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('managecompany') }}"> Manage Company</a>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('listroles') }}"> Assign Roles</a>
+                            @endcan
+                          
+                            @can('rolesAccess')
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdownRole" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Roles <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownRole">
+                                    @can('view', App\User::class)
+                                        <a class="nav-link" href="{{ route('listroles') }}"> Assign Roles</a>
+                                    @endcan
+                                    
+                                    @can('create', App\Roles::class)
+                                        <a class="nav-link" href="{{ route('createroles') }}"> Create Role</a>
+                                    @endcan
+                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('createroles') }}"> Create Role</a>
+                            @endcan
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdownEvent" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Roles <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownEvent">
+                                    
+                                        <a class="nav-link" href="{{ route('listroles') }}"> Assign Roles</a>
+                                    
+                                        <a class="nav-link" href="{{ route('createroles') }}"> Create Role</a>
+                                    
+                                </div>
                             </li>
+                            
+                            @can('managePackageAccess')
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdownPackage" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Package <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPackage">
+                                    <a class="nav-link" href="{{ route('listpackage') }}"> Manage Package</a>
+                                    <a class="nav-link" href="{{ route('addpackage') }}"> Add Package</a>
+                                </div>
+                            </li>
+                            @endcan
+                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->person->firstname }} {{ Auth::user()->person->lastname }} <span class="caret"></span>

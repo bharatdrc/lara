@@ -18,22 +18,34 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/login', 'HomeController@index')->name('login');
-Route::get('/dashboard', 'PersonController@index')->name('dashboard')->middleware('verified');
-Route::get('/updateprofile', 'PersonController@update')->name('updateprofile')->middleware('verified');
-Route::patch('/stoteprofile', 'PersonController@storeupdate')->name('storeupdate')->middleware('verified');
 
-Route::get('/addcompany', 'CompanyController@create')->name('addcompany')->middleware('verified');
-Route::post('/storecompany', 'CompanyController@store')->name('storecompany')->middleware('verified');
-Route::get('/editcompany/{company?}', 'CompanyController@edit')->name('editcompany')->middleware('verified');
-Route::patch('/updatecompany/{company?}', 'CompanyController@update')->name('updatecompany')->middleware('verified');
+Route::middleware(['verified'])->group(function () {
+	
+	Route::get('/dashboard', 'PersonController@index')->name('dashboard');
+	Route::get('/updateprofile', 'PersonController@update')->name('updateprofile');
+	Route::patch('/stoteprofile', 'PersonController@storeupdate')->name('storeupdate');
 
-Route::any('/managecompany', 'CompanyController@index')->name('managecompany')->middleware('verified');
+	Route::get('/addcompany', 'CompanyController@create')->name('addcompany')->middleware('can:companyAccess');
+	Route::post('/storecompany', 'CompanyController@store')->name('storecompany');
+	Route::get('/editcompany/{company?}', 'CompanyController@edit')->name('editcompany')->middleware('can:companyAccess,\App\User');
+	Route::patch('/updatecompany/{company?}', 'CompanyController@update')->name('updatecompany');
 
-Route::get('/listroles', 'Auth\RolesController@index')->name('listroles')->middleware('verified');
-Route::get('/editroles/{user}', 'Auth\RolesController@edit')->name('editroles')->middleware('verified');
-Route::patch('/updateroles/{user}', 'Auth\RolesController@update')->name('updateroles')->middleware('verified');
+	Route::any('/managecompany', 'CompanyController@index')->name('managecompany')->middleware('can:manageCompanyAccess');
 
-Route::get('/createroles', 'Auth\RolesController@create')->name('createroles')->middleware('verified');
-Route::post('/storerole', 'Auth\RolesController@store')->name('storerole')->middleware('verified');
+	Route::get('/listroles', 'Auth\RolesController@index')->name('listroles')->middleware('can:rolesAccess');
+	Route::get('/editroles/{user}', 'Auth\RolesController@edit')->name('editroles');
+	Route::patch('/updateroles/{user}', 'Auth\RolesController@update')->name('updateroles');
+	Route::get('/createroles', 'Auth\RolesController@create')->name('createroles')->middleware('can:create,\App\Roles');
+	Route::post('/storerole', 'Auth\RolesController@store')->name('storerole');
+
+	Route::get('/listpackage', 'PackageController@index')->name('listpackage')->middleware('can:managePackageAccess');
+	Route::get('/addpackage', 'PackageController@create')->name('addpackage')->middleware('can:managePackageAccess');;
+	Route::post('/savepackage', 'PackageController@store')->name('savepackage')->middleware('can:managePackageAccess');
+
+	Route::get('/eventlist', 'EventController@index')->name('eventlist');
+	Route::get('/addevent', 'EventController@create')->name('addevent');
+
+});
+
 
 
