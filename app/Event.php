@@ -27,6 +27,6 @@ class Event extends Model
      */
     public function company()
     {
-        return $this->BelongsTo('App\Company');
+        return $this->BelongsTo('App\Company','id');
     }
 }

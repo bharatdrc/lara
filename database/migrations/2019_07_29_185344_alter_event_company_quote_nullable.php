@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddQuoteToEventTable extends Migration
+class AlterEventCompanyQuoteNullable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddQuoteToEventTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->unsignedBigInteger('quote_id');
-            $table->foreign('quote_id')->references('id')->on('quotes');
+            $table->unsignedBigInteger('company_id')->nullable()->change();
+            $table->unsignedBigInteger('quote_id')->nullable()->change();
         });
     }
 
@@ -27,8 +27,8 @@ class AddQuoteToEventTable extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-           $table->dropColumn('quote_id');
-           $table->dropForeign(['quote_id']);
+            $table->unsignedBigInteger('company_id')->nullable(false)->change();
+            $table->unsignedBigInteger('quote_id')->nullable(false)->change();
         });
     }
 }

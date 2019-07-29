@@ -52,6 +52,6 @@ class Company extends Model
      */
     public function events()
     {
-        return $this->hasMany('App\Event','id');
+        return $this->hasMany('App\Event','company_id');
     }
 }

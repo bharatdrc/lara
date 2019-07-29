@@ -44,7 +44,7 @@ Route::middleware(['verified'])->group(function () {
 
 	Route::get('/eventlist', 'EventController@index')->name('eventlist');
 	Route::get('/addevent', 'EventController@create')->name('addevent');
-	Route::get('/storeevent', 'EventController@store')->name('storeevent');
+	Route::post('/storeevent', 'EventController@store')->name('storeevent');
 
 });
 
