@@ -2,10 +2,10 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Event;
+use App\Quote;
 use Faker\Generator as Faker;
 
-$factory->define(Event::class, function (Faker $faker) {
+$factory->define(Quote::class, function (Faker $faker) {
     return [
         //
     ];

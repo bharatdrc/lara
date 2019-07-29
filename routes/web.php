@@ -20,7 +20,7 @@ Auth::routes(['verify' => true]);
 Route::get('/login', 'HomeController@index')->name('login');
 
 Route::middleware(['verified'])->group(function () {
-	
+
 	Route::get('/dashboard', 'PersonController@index')->name('dashboard');
 	Route::get('/updateprofile', 'PersonController@update')->name('updateprofile');
 	Route::patch('/stoteprofile', 'PersonController@storeupdate')->name('storeupdate');
@@ -44,6 +44,7 @@ Route::middleware(['verified'])->group(function () {
 
 	Route::get('/eventlist', 'EventController@index')->name('eventlist');
 	Route::get('/addevent', 'EventController@create')->name('addevent');
+	Route::get('/storeevent', 'EventController@store')->name('storeevent');
 
 });
 
