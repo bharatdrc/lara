@@ -36,7 +36,7 @@ class Company extends Model
      */
     public function mainAddress()
     {
-        return $this->BelongsTo('App\Address','address');
+        return $this->belongsTo('App\Address','address');
     }
 
     /**
@@ -44,7 +44,7 @@ class Company extends Model
      */
     public function billingAddress()
     {
-        return $this->BelongsTo('App\Address','invoiceaddress');
+        return $this->belongsTo('App\Address','invoiceaddress');
     }
 
     /**
@@ -52,6 +52,6 @@ class Company extends Model
      */
     public function events()
     {
-        return $this->hasMany('App\Event','company_id');
+        return $this->hasMany('App\Event','id');
     }
 }

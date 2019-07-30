@@ -21,4 +21,20 @@ class Package extends Model
     protected $fillable = [
         'type','name','totalattendee','totalslot','price','description'
     ];
+
+    /**
+     * The person that belong to the country.
+     */
+    public function productQuotes()
+    {
+        return $this->hasMany('App\Quote','product_id');
+    }
+
+    /**
+     * The person that belong to the country.
+     */
+    public function addonesQuotes()
+    {
+        return $this->hasMany('App\Quote','quote_package','quote_id','addon_id');
+    }
 }

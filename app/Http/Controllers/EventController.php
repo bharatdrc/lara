@@ -56,9 +56,9 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        
-        //$this->validate($request,$this->rules);
-       /* if(isset($request->titleimage)){
+
+       /* $this->validate($request,$this->rules);
+        if(isset($request->titleimage)){
             $titleImageName = $request->titleimage;
         }
         if(isset($request->logo)){
@@ -91,11 +91,24 @@ class EventController extends Controller
             'customcss' =>$request ->customcss,
 
         ]);*/
+
         $event = Event::find(1);
         $company = \App\Company::find($request->company);
-        dd($event->company->get());
-        $event->company->associate($company)->save();
-        dd($request);
+
+        $event->company()->associate($company)->save();
+
+        $package = \App\Package::find($request->package);
+        $quote = new \App\Quote;
+        $quote->product_id = $request->package;
+        $addones= $request->addone;
+        foreach($addones as $addonId => $count){
+            $quote->addons()->attach($addonId);
+        }
+        $quote->save();
+
+        $event->quote()->save($quote);
+
+        dd($event);
     }
 
     /**

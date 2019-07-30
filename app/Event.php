@@ -19,14 +19,22 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'eventname','shortname','subtitle','url','email','titleimage','logo','language','description','customcss'
+        'eventname','shortname','subtitle','url','email','titleimage','logo','language','description','customcss','company_id','quote_id'
     ];
-    
+
     /**
      * The person that belong to the country.
      */
     public function company()
     {
-        return $this->BelongsTo('App\Company','id');
+        return $this->belongsTo('App\Company','company_id');
+    }
+
+    /**
+     * The person that belong to the country.
+     */
+    public function quote()
+    {
+        return $this->hasOne('App\Quote','quote_id');
     }
 }
