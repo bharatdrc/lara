@@ -43,6 +43,6 @@ class Quote extends Model
      */
     public function addons()
     {
-        return $this->belongsToMany('App\Package','quote_package','addon_id','quote_id');
+        return $this->belongsToMany('App\Package','quote_package','quote_id','addon_id')->withPivot('count');
     }
 }

@@ -30,7 +30,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('event.list');
+        $events = Event::all();
+        return view('event.list',['events'=>$events]);
     }
 
     /**
@@ -57,7 +58,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
-       /* $this->validate($request,$this->rules);
+        $this->validate($request,$this->rules);
         if(isset($request->titleimage)){
             $titleImageName = $request->titleimage;
         }
@@ -90,25 +91,25 @@ class EventController extends Controller
             'description'=>$request->description,
             'customcss' =>$request ->customcss,
 
-        ]);*/
+        ]);
 
-        $event = Event::find(1);
+       // $event = Event::find(1);
         $company = \App\Company::find($request->company);
 
         $event->company()->associate($company)->save();
 
-        $package = \App\Package::find($request->package);
         $quote = new \App\Quote;
         $quote->product_id = $request->package;
+        $quote->save();
         $addones= $request->addone;
         foreach($addones as $addonId => $count){
-            $quote->addons()->attach($addonId);
+            $quote->addons()->attach($addonId,['count'=>$count]);
         }
         $quote->save();
 
         $event->quote()->save($quote);
 
-        dd($event);
+        return redirect('eventlist')->with('success','Event Created');
     }
 
     /**
@@ -130,7 +131,12 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        $companies = \App\Company::all();
+        $packages = \App\Package::where(['type'=>1])->get();
+
+        $attendeeAddons = \App\Package::where(['type'=>2,'totalattendee'=>0])->get();
+        $slotAddons = \App\Package::where(['type'=>2,'totalslot'=>0])->get();
+        return view('event.edit',['event'=>$event, 'companies' => $companies,'packages'=>$packages,'attendeeAddons'=>$attendeeAddons,'slotAddons'=>$slotAddons]);
     }
 
     /**

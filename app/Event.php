@@ -35,6 +35,6 @@ class Event extends Model
      */
     public function quote()
     {
-        return $this->hasOne('App\Quote','quote_id');
+        return $this->hasOne('App\Quote','addon_id');
     }
 }
