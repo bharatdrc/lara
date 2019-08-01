@@ -186,7 +186,7 @@
                                     @foreach ($packages as $package)
 
 
-                                        <td><input type="radio" class="form-control @error('package') is-invalid @enderror" name="package" value="{{ $package->id}}" @if($loop->index==0)checked @endif ></td>
+                                        <td><input type="radio" class="form-control @error('package') is-invalid @enderror" name="package" value="{{ $package->id}}" @if($loop->index==0 && !$selectedPackage)checked @endif @if($selectedPackage==$package->id) checked @endif></td>
                                         <td><a href="{{route('editcompany',['package' => $package->id])}}">{{ $package->name }}</a></td>
                                     </tr>
                                     @endforeach
@@ -207,7 +207,7 @@
 
                                     <tr>
                                     @foreach ($attendeeAddons as $addon)
-                                        <td><input type="number" min="0" class="form-control @error('addons') is-invalid @enderror" name="addone[{{$addon->id}}]" value="0" ></td>
+                                        <td><input type="number" min="0" class="form-control @error('addons') is-invalid @enderror" name="addone[{{$addon->id}}]" value="@if(array_key_exists($addon->id,$selectadd) ){{(int)$selectadd[$addon->id]}}@endif" ></td>
                                         <td><a href="{{route('editcompany',['addon' => $addon->id])}}">{{ $addon->name }}</a></td>
                                     </tr>
                                     @endforeach
@@ -229,7 +229,7 @@
 
                                     <tr>
                                     @foreach ($slotAddons as $addon)
-                                        <td><input type="number" min="0" class="form-control @error('addons') is-invalid @enderror" name="addone[{{$addon->id}}]" value="0" ></td>
+                                        <td><input type="number" min="0" class="form-control @error('addons') is-invalid @enderror" name="addone[{{$addon->id}}]" value="@if(array_key_exists($addon->id,$selectadd) ){{(int)$selectadd[$addon->id]}}@endif" ></td>
                                         <td><a href="{{route('editcompany',['addon' => $addon->id])}}">{{ $addon->name }}</a></td>
                                     </tr>
                                     @endforeach

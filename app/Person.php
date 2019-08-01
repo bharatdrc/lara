@@ -27,6 +27,6 @@ class Person extends Model
      */
     public function company()
     {
-    	return $this->belongsTo('App\Company','id');
+    	return $this->belongsTo('App\Company','companyid');
     }
 }

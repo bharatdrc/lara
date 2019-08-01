@@ -136,13 +136,18 @@ class EventController extends Controller
         $selectedCompany = $event->company;
         $selectedPackage = $selectedAddons = null;
         if($event->quote){
-            $selectedPackage = $event->quote->product;
+            $selectedPackage = $event->quote->product->id;
             $selectedAddons = $event->quote->addons;
         }
-        dd($event->quote->product);
+        
+        $selectadd =[];
+        foreach ($selectedAddons as $value) {
+            $selectadd[$value->id]=$value->pivot->count;
+        }
+        
         $attendeeAddons = \App\Package::where(['type'=>2,'totalattendee'=>0])->get();
         $slotAddons = \App\Package::where(['type'=>2,'totalslot'=>0])->get();
-        return view('event.edit',['event'=>$event, 'companies' => $companies,'selectedCompany'=>$selectedCompany,'packages'=>$packages,'attendeeAddons'=>$attendeeAddons,'slotAddons'=>$slotAddons]);
+        return view('event.edit',['event'=>$event, 'companies' => $companies,'selectedCompany'=>$selectedCompany,'packages'=>$packages,'selectedPackage'=>$selectedPackage,'attendeeAddons'=>$attendeeAddons,'slotAddons'=>$slotAddons,'selectadd'=>$selectadd]);
     }
 
     /**
