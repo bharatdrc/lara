@@ -35,7 +35,7 @@ class Quote extends Model
      */
     public function product()
     {
-        return $this->belongsTo('App\Package','id');
+        return $this->belongsTo('App\Package','product_id');
     }
 
     /**

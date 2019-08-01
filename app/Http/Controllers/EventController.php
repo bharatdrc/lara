@@ -133,10 +133,16 @@ class EventController extends Controller
     {
         $companies = \App\Company::all();
         $packages = \App\Package::where(['type'=>1])->get();
-
+        $selectedCompany = $event->company;
+        $selectedPackage = $selectedAddons = null;
+        if($event->quote){
+            $selectedPackage = $event->quote->product;
+            $selectedAddons = $event->quote->addons;
+        }
+        dd($event->quote->product);
         $attendeeAddons = \App\Package::where(['type'=>2,'totalattendee'=>0])->get();
         $slotAddons = \App\Package::where(['type'=>2,'totalslot'=>0])->get();
-        return view('event.edit',['event'=>$event, 'companies' => $companies,'packages'=>$packages,'attendeeAddons'=>$attendeeAddons,'slotAddons'=>$slotAddons]);
+        return view('event.edit',['event'=>$event, 'companies' => $companies,'selectedCompany'=>$selectedCompany,'packages'=>$packages,'attendeeAddons'=>$attendeeAddons,'slotAddons'=>$slotAddons]);
     }
 
     /**
@@ -148,7 +154,84 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+
+        if($request->isMethod('patch'))
+        {
+            $this->rules['eventname'] = 'required|string|max:255|unique:events,id,'.$event->id;
+            if ($event->titleimage && !$request->hasFile('titleimage')) {
+                unset($this->rules['titleimage']);
+            }
+            if ($event->logo && !$request->hasFile('logo')) {
+                unset($this->rules['logo']);
+            }
+        }
+
+        $this->validate($request,$this->rules);
+
+        $titleImageName = $logoName = null;
+
+        if($request->hasFile('titleimage')){
+            $titleImageName = $request->titleimage;
+        }
+        if($request->hasFile('titleimage')){
+            $logoName = $request->logo;
+        }
+
+
+        if ($request->hasFile('titleimage') && $request->file('titleimage')->isValid()) {
+            $titleImageName = $request->user()->id.'_event'.time().'.'.request()->titleimage->getClientOriginalExtension();
+            $path = $request->file('titleimage')->storeAs(
+                'titleimage', $titleImageName
+            );
+        }else{
+            $titleImageName = $event->titleimage;
+        }
+        if ($request->hasFile('logo') && $request->file('logo')->isValid()) {
+            $logoName = $request->user()->id.'_event'.time().'.'.request()->logo->getClientOriginalExtension();
+            $path = $request->file('logo')->storeAs(
+                'logo', $logoName
+            );
+        }else{
+            $logoName = $event->logo;
+        }
+
+
+        $event->update([
+            'eventname' => $request->eventname,
+            'shortname' => $request->shortname,
+            'subtitle' => $request->subtitle,
+            'url' => $request->url,
+            'email' => $request->email,
+            'titleimage' => $titleImageName?$titleImageName:'',
+            'logo' => $logoName?$logoName:'',
+            'language' => $request->language,
+            'description'=>$request->description,
+            'customcss' =>$request ->customcss,
+
+        ]);
+
+
+       // $event = Event::find(1);
+        $company = \App\Company::find($request->company);
+
+        $event->company()->associate($company)->save();
+
+        if($event->quote)
+            $quote = $event->quote;
+        else
+            $quote = new \App\Quote;
+        $quote->product_id = $request->package;
+        $quote->save();
+        $addones= $request->addone;
+        $quote->addons()->detach();
+        foreach($addones as $addonId => $count){
+            $quote->addons()->attach($addonId,['count'=>$count]);
+        }
+        $quote->save();
+
+        $event->quote()->save($quote);
+
+        return redirect('eventlist')->with('success','Event Created');
     }
 
     /**

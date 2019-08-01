@@ -18,7 +18,7 @@
 
                                 <select name="company" id="company" class="form-control @error('company') is-invalid @enderror">
                                     @foreach($companies as $company)
-                                        <option value="{{$company->id}}" @if((int) old('company') === $company->id) selected @endif >{{$company->companyname}}</option>
+                                        <option value="{{$company->id}}" @if((int) old('company')?(int)old('company'):$event->company->id === $company->id) selected @endif >{{$company->companyname}}</option>
                                     @endforeach
                                 </select>
 
@@ -33,7 +33,7 @@
                             <label for="eventname" class="col-md-4 col-form-label text-md-right">Event Name</label>
 
                             <div class="col-md-6">
-                                <input id="eventname" type="text" class="form-control @error('eventname') is-invalid @enderror" name="eventname" value="{{ old('eventname')}}" autocomplete="eventname" autofocus>
+                                <input id="eventname" type="text" class="form-control @error('eventname') is-invalid @enderror" name="eventname" value="{{ old('eventname')?old('eventname'):$event->eventname}}" autocomplete="eventname" autofocus>
 
                                 @error('eventname')
                                     <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                             <label for="shortname" class="col-md-4 col-form-label text-md-right">Short Name</label>
 
                             <div class="col-md-6">
-                                <input id="shortname" type="text" class="form-control @error('shortname') is-invalid @enderror" name="shortname" value="{{ old('shortname')}}" required autocomplete="shortname">
+                                <input id="shortname" type="text" class="form-control @error('shortname') is-invalid @enderror" name="shortname" value="{{ old('shortname')?old('shortname'):$event->shortname}}" required autocomplete="shortname">
 
                                 @error('shortname')
                                     <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                             <label for="subtitle" class="col-md-4 col-form-label text-md-right">Sub Title</label>
 
                             <div class="col-md-6">
-                                <input id="subtitle" type="text" class="form-control @error('subtitle') is-invalid @enderror" name="subtitle" value="{{ old('subtitle')}}" autocomplete="subtitle">
+                                <input id="subtitle" type="text" class="form-control @error('subtitle') is-invalid @enderror" name="subtitle" value="{{ old('subtitle')?old('subtitle'):$event->subtitle}}" autocomplete="subtitle">
 
                                 @error('subtitle')
                                     <span class="invalid-feedback" role="alert">
@@ -73,7 +73,7 @@
                             <label for="url" class="col-md-4 col-form-label text-md-right">Url</label>
 
                             <div class="col-md-6">
-                                <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ old('url')}}" autocomplete="url">
+                                <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ old('url')?old('url'):$event->url}}" autocomplete="url">
 
                                 @error('url')
                                     <span class="invalid-feedback" role="alert">
@@ -86,7 +86,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email')}}" autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email')?old('email'):$event->email}}" autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -100,9 +100,10 @@
 
                             <div class="col-md-6">
 
-                                 <input type="file" id="titleimage" class="form-control @error('titleimage') is-invalid @enderror" name="titleimage">
-
-                                    <img class="rounded-circle" src="/storage/profileimage/" width="100" height="100"/>
+                                <input type="file" id="titleimage" class="form-control @error('titleimage') is-invalid @enderror" name="titleimage">
+                                @if($event->titleimage)
+                                <img class="rounded-circle" src="/storage/titleimage/{{$event->titleimage}}" width="100" height="100"/>
+                                @endif
 
                                 @error('titleimage')
                                     <span class="invalid-feedback" role="alert">
@@ -116,9 +117,10 @@
 
                             <div class="col-md-6">
 
-                                 <input type="file" id="logo" class="form-control @error('logo') is-invalid @enderror" name="logo">
-
-                                    <img class="rounded-circle" src="/storage/profileimage/" width="100" height="100"/>
+                                <input type="file" id="logo" class="form-control @error('logo') is-invalid @enderror" name="logo">
+                                @if($event->logo)
+                                <img class="rounded-circle" src="/storage/logo/{{$event->logo}}" width="100" height="100"/>
+                                @endif
 
                                 @error('logo')
                                     <span class="invalid-feedback" role="alert">
@@ -132,8 +134,8 @@
 
                             <div class="col-md-6">
                                 <select name="language" id="language" class="form-control @error('language') is-invalid @enderror">
-                                    <option value="0" @if((int) old('language') === 0) selected @endif >EN</option>
-                                    <option value="1" @if((int) old('language') === 1) selected @endif >DE</option>
+                                    <option value="0" @if((int) old('language')?old('language'):$event->language === 0) selected @endif >EN</option>
+                                    <option value="1" @if((int) old('language')?old('language'):$event->language === 1) selected @endif >DE</option>
                                 </select>
                                 @error('language')
                                     <span class="invalid-feedback" role="alert">
@@ -147,7 +149,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description"  autocomplete="description">{{ old('description')}}</textarea>
+                                <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description"  autocomplete="description">{{ old('description')?old('description'):$event->description}}</textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -160,7 +162,7 @@
                             <label for="customcss" class="col-md-4 col-form-label text-md-right">Customcss</label>
 
                             <div class="col-md-6">
-                                <textarea id="customcss" class="form-control @error('customcss') is-invalid @enderror" name="customcss"  autocomplete="customcss">{{ old('customcss')}}</textarea>
+                                <textarea id="customcss" class="form-control @error('customcss') is-invalid @enderror" name="customcss"  autocomplete="customcss">{{ old('customcss')?old('customcss'):$event->customcss}}</textarea>
 
                                 @error('customcss')
                                     <span class="invalid-feedback" role="alert">
@@ -214,7 +216,7 @@
                                 @endif
                             </tbody>
                         </table>
-                        
+
                         <table class="table table-striped">
                             <thead>
                                 <tr>

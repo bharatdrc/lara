@@ -46,7 +46,7 @@ Route::middleware(['verified'])->group(function () {
 	Route::get('/addevent', 'EventController@create')->name('addevent');
 	Route::post('/storeevent', 'EventController@store')->name('storeevent');
 	Route::get('/editevent/{event}', 'EventController@edit')->name('editevent');
-	Route::patch('/updateevent/{event}', 'EventController@updte')->name('updateevent');
+	Route::patch('/updateevent/{event}', 'EventController@update')->name('updateevent');
 
 });
 
