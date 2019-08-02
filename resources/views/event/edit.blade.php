@@ -149,7 +149,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description"  autocomplete="description">{{ old('description')?old('description'):$event->description}}</textarea>
+                                <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description"  autocomplete="description">{{ old('description')?old('description'):$event->description}} </textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -207,7 +207,7 @@
 
                                     <tr>
                                     @foreach ($attendeeAddons as $addon)
-                                        <td><input type="number" min="0" class="form-control @error('addons') is-invalid @enderror" name="addone[{{$addon->id}}]" value="@if(array_key_exists($addon->id,$selectadd) ){{(int)$selectadd[$addon->id]}}@endif" ></td>
+                                        <td><input type="number" min="0" class="form-control @error('addons') is-invalid @enderror" name="addone[{{$addon->id}}]" value="@if(array_key_exists($addon->id,$selectadd) ){{(int)$selectadd[$addon->id]}}@else{{0}}@endif" ></td>
                                         <td><a href="{{route('editcompany',['addon' => $addon->id])}}">{{ $addon->name }}</a></td>
                                     </tr>
                                     @endforeach

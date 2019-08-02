@@ -120,7 +120,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        dd('show');
     }
 
     /**
@@ -139,12 +139,12 @@ class EventController extends Controller
             $selectedPackage = $event->quote->product->id;
             $selectedAddons = $event->quote->addons;
         }
-        
+
         $selectadd =[];
         foreach ($selectedAddons as $value) {
             $selectadd[$value->id]=$value->pivot->count;
         }
-        
+
         $attendeeAddons = \App\Package::where(['type'=>2,'totalattendee'=>0])->get();
         $slotAddons = \App\Package::where(['type'=>2,'totalslot'=>0])->get();
         return view('event.edit',['event'=>$event, 'companies' => $companies,'selectedCompany'=>$selectedCompany,'packages'=>$packages,'selectedPackage'=>$selectedPackage,'attendeeAddons'=>$attendeeAddons,'slotAddons'=>$slotAddons,'selectadd'=>$selectadd]);
@@ -227,7 +227,8 @@ class EventController extends Controller
             $quote = new \App\Quote;
         $quote->product_id = $request->package;
         $quote->save();
-        $addones= $request->addone;
+        $addones= array_filter($request->addone);
+
         $quote->addons()->detach();
         foreach($addones as $addonId => $count){
             $quote->addons()->attach($addonId,['count'=>$count]);
