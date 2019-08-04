@@ -229,7 +229,7 @@
 
                                     <tr>
                                     @foreach ($slotAddons as $addon)
-                                        <td><input type="number" min="0" class="form-control @error('addons') is-invalid @enderror" name="addone[{{$addon->id}}]" value="@if(array_key_exists($addon->id,$selectadd) ){{(int)$selectadd[$addon->id]}}@endif" ></td>
+                                        <td><input type="number" min="0" class="form-control @error('addons') is-invalid @enderror" name="addone[{{$addon->id}}]" value="@if(array_key_exists($addon->id,$selectadd) ){{(int)$selectadd[$addon->id]}}@else{{0}}@endif" ></td>
                                         <td><a href="{{route('editcompany',['addon' => $addon->id])}}">{{ $addon->name }}</a></td>
                                     </tr>
                                     @endforeach

@@ -49,6 +49,9 @@ Route::middleware(['verified'])->group(function () {
 	Route::patch('/updateevent/{event}', 'EventController@update')->name('updateevent');
 	Route::get('/showevent/{event}', 'EventController@show')->name('showevent');
 
+	Route::get('/addtimeslot/{event}', 'TimeslotController@create')->name('addtimeslot');
+	Route::post('/storetimeslot/{event}', 'TimeslotController@store')->name('storetimeslot');
+
 });
 
 

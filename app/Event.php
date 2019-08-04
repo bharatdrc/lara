@@ -33,6 +33,14 @@ class Event extends Model
     /**
      * The person that belong to the country.
      */
+    public function timeslotes()
+    {
+        return $this->hasMany('App\Timeslot','event_id');
+    }
+
+    /**
+     * The person that belong to the country.
+     */
     public function quote()
     {
         return $this->hasOne('App\Quote','addon_id');

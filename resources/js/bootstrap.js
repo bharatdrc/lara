@@ -53,3 +53,5 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+//window.datepicker = require('/../../node_modules/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js');

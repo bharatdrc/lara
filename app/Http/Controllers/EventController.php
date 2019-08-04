@@ -120,7 +120,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        dd('show');
+        return view('event.show',['event'=>$event]);
     }
 
     /**
@@ -214,6 +214,7 @@ class EventController extends Controller
             'customcss' =>$request ->customcss,
 
         ]);
+
 
 
        // $event = Event::find(1);
