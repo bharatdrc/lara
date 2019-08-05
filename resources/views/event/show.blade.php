@@ -21,7 +21,7 @@
 			</div>
 			<div class="card">
 				
-				<div class="card-header">Timeslotes</div>
+				<div class="card-header">timeslots</div>
 				
 				<div class="card-body">
 					<table class="table table-striped">
@@ -37,8 +37,8 @@
 			            </thead>
 			            <tbody>
 
-			            	@if($event->timeslotes)
-							    @foreach ($event->timeslotes as $timeslot)
+			            	@if($event->timeslots)
+							    @foreach ($event->timeslots as $timeslot)
 							    <tr>
 							        <td>{{$timeslot->starttime}}</td>
 							        <td>{{$timeslot->endtime}}</td>
@@ -54,6 +54,71 @@
         			<a href="{{route('addtimeslot',['event'=>$event])}}" >Add Timeslot</a>
 				</div>
 			</div>
+
+			
+			
+			<div class="card">
+				
+				<div class="card-header">Location</div>
+				
+				<div class="card-body">
+					<table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if($event->locations)
+
+                                <tr>
+                                @foreach ($event->locations as $location)
+
+                                    <td><a href="{{route('editlocation',['location' => $location->id])}}">{{ $location->name }}</a></td>
+                                </tr>
+                                @endforeach
+                            @else
+                                <tr><td>no data</td> </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                    <a href="{{route('addlocation',['event'=>$event])}}" >Add Location</a>
+                </div>
+            </div>
+
+            <div class="card">
+				
+				<div class="card-header">Participants</div>
+				
+				<div class="card-body">
+					<table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>status</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if($event->participants)
+
+                                <tr>
+                                @foreach ($event->participants as $participant)
+
+                                    <td>{{$participant->user->email}}</td>
+                                    <td>{{$participant->status}}</td>
+                                </tr>
+                                @endforeach
+                            @else
+                                <tr><td>no data</td> </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                    <a href="{{route('addparticipant',['event'=>$event])}}" >Add Participants</a>
+                </div>
+            </div>
+
            	
 
 

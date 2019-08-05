@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddEventToEventparticipantTable extends Migration
+class AddUserToEventparticipantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class AddEventToEventparticipantTable extends Migration
     public function up()
     {
         Schema::table('event_participations', function (Blueprint $table) {
-            $table->foreign('event_id')->references('id')->on('events');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -26,7 +27,8 @@ class AddEventToEventparticipantTable extends Migration
     public function down()
     {
         Schema::table('event_participations', function (Blueprint $table) {
-            $table->dropForeign(['event_id']);
+            $table->dropColumn('user_id');
+            $table->dropForeign(['user_id']);
         });
     }
 }

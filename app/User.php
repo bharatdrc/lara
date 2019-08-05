@@ -10,6 +10,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
+    const DEFAULT_PASSWORD = 'Drc@1234'; 
     /**
      * The attributes that are mass assignable.
      *
@@ -48,5 +49,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function roles()
     {
         return $this->belongsToMany('App\Roles', 'role_user', 'user_id', 'role_id');
+    }
+
+     /**
+     * The person that belong to the country.
+     */
+    public function participants()
+    {
+        return $this->hasMany('App\EventParticipation','user_id');
     }
 }
