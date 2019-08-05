@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class EventParticipationController extends Controller
 {
+
+    protected $rules=[
+        'firstname' => ['required', 'string', 'max:255'],
+        'lastname' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255'],
+        'jobtitle' => ['required', 'string', 'max:255'],
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -20,11 +28,12 @@ class EventParticipationController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(\App\Event $event)
     {
-        //
+        return view('eventparticipant.add',['event'=>$event]);
     }
 
     /**
@@ -35,7 +44,12 @@ class EventParticipationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,$this->rules);
+        $user = \App\User::where('email',$request->email)->get();
+        if(count($user)>0)
+        {
+            $user->roles()->syncWithoutDetaching([4,5]);
+        }
     }
 
     /**

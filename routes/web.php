@@ -49,6 +49,14 @@ Route::middleware(['verified'])->group(function () {
 	Route::patch('/updateevent/{event}', 'EventController@update')->name('updateevent');
 	Route::get('/showevent/{event}', 'EventController@show')->name('showevent');
 
+	Route::get('/addlocation/{event}', 'LocationController@create')->name('addlocation');
+	Route::post('/storelocation/{event}', 'LocationController@store')->name('storelocation');
+	Route::get('/editlocation/{location}', 'LocationController@edit')->name('editlocation');
+	Route::patch('/updatelocation/{location}', 'LocationController@update')->name('updatelocation');
+
+	Route::get('/addparticipant/{event}', 'EventParticipationController@create')->name('addparticipant');
+	Route::post('/storeparticipant/{event}', 'EventParticipationController@store')->name('storeparticipant');
+
 });
 
 
