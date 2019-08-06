@@ -63,11 +63,12 @@ Route::middleware(['verified'])->group(function () {
 	Route::get('/sendwelcomenotification/{eventparticipation}', 'EventParticipationController@sendWelcomeNotification')->name('sendWelcomeNotification');
 	Route::get('/sendactivationreminder/{eventparticipation}', 'EventParticipationController@sendActivationReminder')->name('sendActivationReminder');
 
-	Route::get('/activateuser/{user}', 'EventParticipationController@activateuser')->name('activateuser');
+	
 
 
 
 });
 
-
+Route::get('/activateuser/{user}', 'EventParticipationController@activateuser')->name('activateuser');
+Route::get('/activateuserpartcipation/{participation}', 'EventParticipationController@activateUserPartcipation')->name('activateuserpartcipation');
 

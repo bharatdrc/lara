@@ -15,14 +15,18 @@ class SendEmail
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $eventparticipation;
+
+    public $template;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(\App\EventParticipation $eventparticipation)
+    public function __construct(\App\EventParticipation $eventparticipation,$template)
     {
         $this->eventparticipation = $eventparticipation;
+        $this->template = $template;
     }
 
     /**

@@ -34,7 +34,7 @@ class SendActivationReminder
             $event->eventparticipation->user->sendEmailVerificationNotification();
         }*/
         $eventparticipation = $event->eventparticipation;
-        Mail::to($eventparticipation->user->email)->send(new UserRegistration($eventparticipation));
+        Mail::to($eventparticipation->user->email)->send(new UserRegistration($eventparticipation,$event->template));
 
 
 

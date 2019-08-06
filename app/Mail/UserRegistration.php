@@ -19,13 +19,22 @@ class UserRegistration extends Mailable
     public $eventparticipation;
 
     /**
+     * The order instance.
+     *
+     * @var string $template
+     */
+    public $template;
+
+
+    /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(\App\EventParticipation $eventparticipation)
+    public function __construct(\App\EventParticipation $eventparticipation,$template)
     {
         $this->eventparticipation = $eventparticipation;
+        $this->template = $template;
     }
 
     /**
@@ -35,7 +44,7 @@ class UserRegistration extends Mailable
      */
     public function build()
     {
-        return $this->from('bharat.parmar@ia.ooo')->view('emails.sendactivationreminder');
+        return $this->from('bharat.parmar@ia.ooo')->view($this->template);
         //return $this->from('bharat.parmar@ia.ooo')->markdown('emails.sendactivationreminder'));
     }
 }

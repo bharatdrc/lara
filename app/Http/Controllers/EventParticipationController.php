@@ -91,7 +91,7 @@ class EventParticipationController extends Controller
     {
 
         // call our event here
-        event(new \App\Events\SendEmail($eventparticipation));
+        event(new \App\Events\SendEmail($eventparticipation,'emails.sendwelcomenotification'));
         $event = $eventparticipation->event;
 
         return redirect()->route('showevent', ['event'=>$event]);
@@ -106,7 +106,7 @@ class EventParticipationController extends Controller
     public function sendActivationReminder(EventParticipation $eventparticipation)
     {
 
-        event(new \App\Events\SendEmail($eventparticipation));
+        event(new \App\Events\SendEmail($eventparticipation,'emails.sendactivationreminder'));
         $event = $eventparticipation->event;
 
         return redirect()->route('showevent', ['event'=>$event]);
@@ -126,6 +126,20 @@ class EventParticipationController extends Controller
             $user->save();
         }
         return redirect('/')->with('success', 'You are successfuly activated');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\EventParticipation $participation
+     * @return \Illuminate\Http\Response
+     */
+    public function activateUserPartcipation(\App\EventParticipation $participation)
+    {
+        $participation->status = EventParticipation::EVENT_PARTICIPATION_STATUS_ACTIVE;
+        $participation->save();
+        
+        return redirect('/')->with('success', 'You are successfuly participateeed in event');
     }
 
     /**
