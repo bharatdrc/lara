@@ -60,6 +60,12 @@ Route::middleware(['verified'])->group(function () {
 
 	Route::get('/addparticipant/{event}', 'EventParticipationController@create')->name('addparticipant');
 	Route::post('/storeparticipant/{event}', 'EventParticipationController@store')->name('storeparticipant');
+	Route::get('/sendwelcomenotification/{eventparticipation}', 'EventParticipationController@sendWelcomeNotification')->name('sendWelcomeNotification');
+	Route::get('/sendactivationreminder/{eventparticipation}', 'EventParticipationController@sendActivationReminder')->name('sendActivationReminder');
+
+	Route::get('/activateuser/{user}', 'EventParticipationController@activateuser')->name('activateuser');
+
+
 
 });
 

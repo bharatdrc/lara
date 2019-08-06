@@ -20,16 +20,16 @@
 				</div>
 			</div>
 			<div class="card">
-				
+
 				<div class="card-header">timeslots</div>
-				
+
 				<div class="card-body">
 					<table class="table table-striped">
 			            <thead>
 			                <tr>
 			                    <th>starttime</th>
 			                    <th>endtime</th>
-			                    
+
 			                    <th>Action</th>
 
 			                </tr>
@@ -43,7 +43,7 @@
 							        <td>{{$timeslot->starttime}}</td>
 							        <td>{{$timeslot->endtime}}</td>
 							        <td>Edit</td>
-							        
+
 							    </tr>
 							    @endforeach
 							@else
@@ -55,12 +55,12 @@
 				</div>
 			</div>
 
-			
-			
+
+
 			<div class="card">
-				
+
 				<div class="card-header">Location</div>
-				
+
 				<div class="card-body">
 					<table class="table table-striped">
                         <thead>
@@ -88,15 +88,16 @@
             </div>
 
             <div class="card">
-				
+
 				<div class="card-header">Participants</div>
-				
+
 				<div class="card-body">
 					<table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>status</th>
+                                <th>action</th>
 
                             </tr>
                         </thead>
@@ -108,6 +109,15 @@
 
                                     <td>{{$participant->user->email}}</td>
                                     <td>{{$participant->status}}</td>
+                                    <td>
+                                    	@if($participant->status != 2)
+	                                    	@if(!$participant->user->hasVerifiedEmail())
+	                                    		<a href="{{route('sendActivationReminder',['eventparticipation'=>$participant])}}" > sendActivationReminder </a>
+	                                    	@else
+	                                    		<a href="{{route('sendWelcomeNotification',['eventparticipation'=>$participant])}}" >sendWelcomeNotification</a>
+	                                    	@endif
+                                    	@endif
+                                	</td>
                                 </tr>
                                 @endforeach
                             @else
@@ -119,7 +129,7 @@
                 </div>
             </div>
 
-           	
+
 
 
         </div>

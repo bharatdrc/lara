@@ -47,7 +47,7 @@ class EventParticipationController extends Controller
     public function store(Request $request,\App\Event $event)
     {
         $this->validate($request,$this->rules);
-        $user = \App\User::where('email',$request->email)->get();
+        $user = \App\User::where('email',$request->email)->get()->first();
         if(count($user)>0)
         {
             EventParticipation::create([
@@ -57,8 +57,7 @@ class EventParticipationController extends Controller
             ]);
             return redirect(route('showevent',['event'=>$event]))->with('success','user is addedto eventparticipant');
             //$user->roles()->syncWithoutDetaching([4,5]);
-        }else
-        {
+        }else{
             $user = \App\User::create([
                 'email' => $request->email,
                 'password' => Hash::make(\App\User::DEFAULT_PASSWORD),
@@ -80,6 +79,53 @@ class EventParticipationController extends Controller
             ]);
             return redirect(route('showevent',['event'=>$event]))->with('success','user is added, added to eventparticipant');
         }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\EventParticipation  $eventparticipation
+     * @return \Illuminate\Http\Response
+     */
+    public function sendWelcomeNotification(EventParticipation $eventparticipation)
+    {
+
+        // call our event here
+        event(new \App\Events\SendEmail($eventparticipation));
+        $event = $eventparticipation->event;
+
+        return redirect()->route('showevent', ['event'=>$event]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\EventParticipation  $eventparticipation
+     * @return \Illuminate\Http\Response
+     */
+    public function sendActivationReminder(EventParticipation $eventparticipation)
+    {
+
+        event(new \App\Events\SendEmail($eventparticipation));
+        $event = $eventparticipation->event;
+
+        return redirect()->route('showevent', ['event'=>$event]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function activateUser(\App\User $user)
+    {
+
+        if(!$user->hasVerifiedEmail()){
+            $user->email_verified_at = new \DateTime();
+            $user->save();
+        }
+        return redirect('/')->with('success', 'You are successfuly activated');
     }
 
     /**
