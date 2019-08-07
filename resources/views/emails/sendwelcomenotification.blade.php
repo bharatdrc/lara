@@ -6,7 +6,7 @@ Sie erhalten diese Nachricht, weil Sie sich für das Event {{$eventparticipation
 <br/>
 Before you can start using the MeetingTool, please activate your account by setting a password
 <br/>
-<a href="{{route('activateuserpartcipation',['participation'=>$eventparticipation])}}">Participate in event!</a>
+<a href="{{URL::signedRoute('activateuserpartcipation',['participation'=>$eventparticipation])}}">Participate in event!</a>
 <br/>
 Your username for login is: {{$eventparticipation->user->email}}
 <br/>

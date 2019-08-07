@@ -114,7 +114,7 @@
 	                                    	@if(!$participant->user->hasVerifiedEmail())
 	                                    		<a href="{{route('sendActivationReminder',['eventparticipation'=>$participant])}}" > sendActivationReminder </a>
 	                                    	@else
-	                                    		<a href="{{route('sendWelcomeNotification',['eventparticipation'=>$participant])}}" >sendWelcomeNotification</a>
+	                                    		<a id="sendWelcome" href="{{route('sendWelcomeNotification',['eventparticipation'=>$participant])}}" >sendWelcomeNotification</a>
 	                                    	@endif
                                     	@endif
                                 	</td>
@@ -135,4 +135,31 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $("#sendWelcome").click(function(e){
+        e.preventDefault();
+        /*var name = $("input[name=name]").val();
+        var password = $("input[name=password]").val();
+        var email = $("input[name=email]").val();*/
+        $.ajax({
+           type:'POST',
+           url:"{{route('sendWelcomeNotification',['eventparticipation'=>2])}}",
+          /* data:{name:name, password:password, email:email},*/
+           success:function(data){
+              alert(data.success);
+           }
+        });
+	});
+
+</script>
+
+
 @endsection
