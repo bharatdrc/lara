@@ -120,7 +120,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        return view('event.show',['event'=>$event]);
+        echo view('event.show',['event'=>$event]);exit;
     }
 
     /**

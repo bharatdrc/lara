@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" id="participant-card">
 
 				<div class="card-header">Participants</div>
 
@@ -151,10 +151,13 @@
         var email = $("input[name=email]").val();*/
         $.ajax({
            type:'POST',
-           url:"{{route('sendWelcomeNotification',['eventparticipation'=>2])}}",
-          /* data:{name:name, password:password, email:email},*/
+           url:"{{route('sendWelcomeNotification',['eventparticipation'=>1])}}",
+          data:{name:'test'},
            success:function(data){
-              alert(data.success);
+           	
+              $('#participant-card .card-body').html('');
+              
+              $('#participant-card .card-body').html(data.responseBody);
            }
         });
 	});

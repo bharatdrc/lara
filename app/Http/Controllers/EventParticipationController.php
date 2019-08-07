@@ -93,7 +93,10 @@ class EventParticipationController extends Controller
         // call our event here
         event(new \App\Events\SendEmail($eventparticipation,'emails.sendwelcomenotification'));
         $event = $eventparticipation->event;
-        return response()->json(['success'=>'Got Simple Ajax Request.']);
+
+        $responseBody = view('event.ajax',['event'=>$event])->render();
+        
+        return response()->json(['success'=>'Got Simple Ajax Request.','responseBody'=>$responseBody]);
         //return redirect()->route('showevent', ['event'=>$event]);
     }
 
