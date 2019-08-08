@@ -62,4 +62,12 @@ class Event extends Model
     {
         return $this->hasOne('App\Quote','addon_id');
     }
+
+    /**
+     * The person that belong to the country.
+     */
+    public function customfields()
+    {
+        return $this->hasMany('App\Customfield','event_id');
+    }
 }

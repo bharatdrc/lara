@@ -76,6 +76,12 @@ Route::middleware(['verified'])->group(function () {
 		Route::get('/sendactivationreminder/{eventparticipation}', 'EventParticipationController@sendActivationReminder')->name('sendActivationReminder');
 	});
 
+	Route::prefix('customfield')->group(function () {
+		Route::post('/storecustomfield/{event}', 'CustomfieldController@store')->name('storecustomfield');
+		/*Route::post('/sendwelcomenotification/{eventparticipation}', 'EventParticipationController@sendWelcomeNotification')->name('sendWelcomeNotification');
+		Route::get('/sendactivationreminder/{eventparticipation}', 'EventParticipationController@sendActivationReminder')->name('sendActivationReminder');*/
+	});
+
 
 });
 

@@ -128,6 +128,66 @@
                     <a href="{{route('addparticipant',['event'=>$event])}}" >Add Participants</a>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">Custom Field</div>
+
+                <div class="card-body">
+		            @if($event->customfields)
+		            	<form method="POST" action="{{ route('storecustomfield',['event'=>$event->id]) }}" enctype="multipart/form-data">
+                        	@csrf
+				            @foreach ($event->customfields as $customfield)
+					            @switch($customfield->type)
+								   	@case(1)
+								        <div class="form-group row">
+				                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
+
+				                            <div class="col-md-6">
+				                                <select name="{{$customfield->name}}" id="{{$customfield->name}}" class="form-control @error($customfield->name) is-invalid @enderror">
+				                                    <option value="0" @if(old($customfield->name)==0) selected @endif>Textfield</option>
+				                                </select>
+
+				                                @error($customfield->name)
+				                                    <span class="invalid-feedback" role="alert">
+				                                        <strong>{{ $message }}</strong>
+				                                    </span>
+				                                @enderror
+				                            </div>
+				                        </div>
+								        @break
+								    @case(2)
+								        Second case...
+								        @break
+								    @case(3)
+								        Second case...
+								        @break
+								    @case(4)
+								        Second case...
+								        @break
+								     @case(5)
+								        Second case...
+								        @break
+
+								    @default
+								        <div class="form-group row">
+				                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
+
+				                            <div class="col-md-6">
+
+				                                <input id="{{$customfield->name}}" type="text" class="form-control @error('{{$customfield->name}}') is-invalid @enderror" name="{{$customfield->name}}" value="{{ old($customfield->name)}}" autocomplete="{{$customfield->name}}">
+
+				                                @error($customfield->name)
+				                                    <span class="invalid-feedback" role="alert">
+				                                        <strong>{{ $message }}</strong>
+				                                    </span>
+				                                @enderror
+				                            </div>
+				                        </div>
+								@endswitch
+							@endforeach
+						</form>
+					@endif
+				</div>
+			</div>
 
 
 
@@ -154,9 +214,9 @@
            url:"{{route('sendWelcomeNotification',['eventparticipation'=>1])}}",
           data:{name:'test'},
            success:function(data){
-           	
+
               $('#participant-card .card-body').html('');
-              
+
               $('#participant-card .card-body').html(data.responseBody);
            }
         });
