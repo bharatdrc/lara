@@ -43,7 +43,7 @@ class Customfield extends Model
      */
     public function customfieldvalues()
     {
-        return $this->hasMany('App\Customfieldvalues','customfield_id');
+        return $this->hasMany('App\Customfieldvalue','customfield_id');
     }
 
 }

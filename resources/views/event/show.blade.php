@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row ">
         <div class="col-md-8">
         	@if(Session::has('success'))
 			    <div class="alert alert-success">
@@ -128,70 +128,114 @@
                     <a href="{{route('addparticipant',['event'=>$event])}}" >Add Participants</a>
                 </div>
             </div>
+            
+
+
+
+        </div>
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-header">Custom Field</div>
 
                 <div class="card-body">
-		            @if($event->customfields)
-		            	<form method="POST" action="{{ route('storecustomfield',['event'=>$event->id]) }}" enctype="multipart/form-data">
-                        	@csrf
-				            @foreach ($event->customfields as $customfield)
-					            @switch($customfield->type)
-								   	@case(1)
-								        <div class="form-group row">
-				                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
+                    <form method="POST" action="{{ route('storecustomfield',['event'=>$event->id]) }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
-				                            <div class="col-md-6">
-				                                <select name="{{$customfield->name}}" id="{{$customfield->name}}" class="form-control @error($customfield->name) is-invalid @enderror">
-				                                    <option value="0" @if(old($customfield->name)==0) selected @endif>Textfield</option>
-				                                </select>
+                            <div class="col-md-6">
 
-				                                @error($customfield->name)
-				                                    <span class="invalid-feedback" role="alert">
-				                                        <strong>{{ $message }}</strong>
-				                                    </span>
-				                                @enderror
-				                            </div>
-				                        </div>
-								        @break
-								    @case(2)
-								        Second case...
-								        @break
-								    @case(3)
-								        Second case...
-								        @break
-								    @case(4)
-								        Second case...
-								        @break
-								     @case(5)
-								        Second case...
-								        @break
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name')}}" autocomplete="name">
 
-								    @default
-								        <div class="form-group row">
-				                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Type</label>
 
-				                            <div class="col-md-6">
+                            <div class="col-md-6">
 
-				                                <input id="{{$customfield->name}}" type="text" class="form-control @error('{{$customfield->name}}') is-invalid @enderror" name="{{$customfield->name}}" value="{{ old($customfield->name)}}" autocomplete="{{$customfield->name}}">
+                                <select name="type" id="type" class="form-control @error('type') is-invalid @enderror">
+                                    <option value="0" @if(old('type')==0) selected @endif>Textfield</option>
+                                    <option value="1" @if(old('type')==1) selected @endif>Dropdown</option>
+                                    <option value="2" @if(old('type')==2) selected @endif >Checkbox</option>
+                                    <option value="3" @if(old('type')==3) selected @endif>Radio</option>
+                                    <option value="4" @if(old('type')==4) selected @endif>Textarea</option>
+                                </select>
 
-				                                @error($customfield->name)
-				                                    <span class="invalid-feedback" role="alert">
-				                                        <strong>{{ $message }}</strong>
-				                                    </span>
-				                                @enderror
-				                            </div>
-				                        </div>
-								@endswitch
-							@endforeach
-						</form>
-					@endif
-				</div>
-			</div>
+                                @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="options" class="col-md-4 col-form-label text-md-right">Options</label>
 
+                            <div class="col-md-6">
 
+                                <textarea name="options" class="form-control @error('options') is-invalid @enderror">{{old('options')}}</textarea>
 
+                                @error('options')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
+                        <div class="form-group row">
+                            <label for="required" class="col-md-4 col-form-label text-md-right"></label>
+
+                            <div class="col-md-6">
+                                <input type="radio" name="required" value="1"> Required<br>
+                                @error('required')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if($event->customfields)
+
+                                    <tr>
+                                    @foreach ($event->customfields as $customfield)
+                                        <td>{{$customfield->name}}</td>
+                                        <td>{{$customfield->type}}</td>
+                                        <td>{{$customfield->required}}</td>
+                                    </tr>
+                                    @endforeach
+                                @else
+                                    <tr><td>no data</td> </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>

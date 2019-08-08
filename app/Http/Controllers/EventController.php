@@ -170,7 +170,19 @@ class EventController extends Controller
                 unset($this->rules['logo']);
             }
         }
+        $allRequest = $request->all();
+        foreach ($event->customfields as $customfield) {
 
+           if(array_key_exists($customfield->name, $allRequest)){
+
+                if($customfield->required){
+
+                    $this->rules[$customfield->name] = ['required'];
+
+                }
+           }
+        }
+       
         $this->validate($request,$this->rules);
 
         $titleImageName = $logoName = null;
@@ -237,6 +249,29 @@ class EventController extends Controller
         $quote->save();
 
         $event->quote()->save($quote);
+
+        foreach ($event->customfields as $customfield) {
+
+           if(array_key_exists($customfield->name, $allRequest)){
+               
+                if(!$customfield->customfieldvalues->count())
+                    $customFieldValueObj = new \App\Customfieldvalue();
+                else
+                    $customFieldValueObj = $customfield->customfieldvalues->first();
+                if($customfield->type ==0)
+                    $customFieldValueObj->value_string = $allRequest[$customfield->name];
+                elseif($customfield->type ==1)
+                    $customFieldValueObj->value_string = $allRequest[$customfield->name];
+                elseif($customfield->type ==2)
+                    $customFieldValueObj->value_string = serialize(array_filter($allRequest[$customfield->name]));
+                elseif($customfield->type ==3)
+                    $customFieldValueObj->value_string = $allRequest[$customfield->name];
+                elseif($customfield->type ==4)
+                    $customFieldValueObj->value_string = $allRequest[$customfield->name];
+                $customFieldValueObj->customfield_id = $customfield->id;
+                $customFieldValueObj->save();
+           }
+        }
 
         return redirect('eventlist')->with('success','Event Created');
     }
