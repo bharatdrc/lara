@@ -88,3 +88,5 @@ Route::middleware(['verified'])->group(function () {
 Route::get('/activateuser/{user}', 'EventParticipationController@activateuser')->name('activateuser');
 Route::get('/activateuserpartcipation/{participation}', 'EventParticipationController@activateUserPartcipation')->name('activateuserpartcipation');
 
+Route::get('/addmultiple', 'MultipleController@create')->name('addmultiple');
+Route::post('/storemultiple', 'MultipleController@store')->name('storemultiple');

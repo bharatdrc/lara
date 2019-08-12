@@ -173,18 +173,18 @@ class EventController extends Controller
         $allRequest = $request->all();
         foreach ($event->customfields as $customfield) {
 
-           if(array_key_exists($customfield->name, $allRequest)){
+           //if(array_key_exists($customfield->name, $allRequest)){
 
                 if($customfield->required){
 
                     $this->rules[$customfield->name] = ['required'];
 
                 }
-           }
+         //  }
         }
-       
-        $this->validate($request,$this->rules);
 
+        $this->validate($request,$this->rules);
+dd($request);
         $titleImageName = $logoName = null;
 
         if($request->hasFile('titleimage')){
@@ -253,7 +253,7 @@ class EventController extends Controller
         foreach ($event->customfields as $customfield) {
 
            if(array_key_exists($customfield->name, $allRequest)){
-               
+
                 if(!$customfield->customfieldvalues->count())
                     $customFieldValueObj = new \App\Customfieldvalue();
                 else
@@ -273,7 +273,7 @@ class EventController extends Controller
            }
         }
 
-        return redirect('eventlist')->with('success','Event Created');
+        return redirect()->route('eventlist')->with('success','Event Created');
     }
 
     /**

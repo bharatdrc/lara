@@ -25,6 +25,33 @@ class Customfieldvalue extends Model
     /**
      * The person that belong to the country.
      */
+    public function getValue(\App\Customfield $customfield)
+    {
+
+        switch ($customfield->type) {
+            case 1:
+
+                $value = $customfield->customfieldvalues->first()->value_string;
+
+                break;
+            case 2:
+                $value = unserialize($customfield->customfieldvalues->first()->value_string);
+                break;
+            case 3:
+                $value = $customfield->customfieldvalues->first()->value_string;
+                break;
+            case 4:
+                $value = $customfield->customfieldvalues->first()->value_string;
+                break;
+            default:
+                $value = $customfield->customfieldvalues->first()->value_string;
+        }
+        return $value;
+    }
+
+    /**
+     * The person that belong to the country.
+     */
     public function customfield()
     {
         return $this->belongsTo('App\Customfield','customfield_id');

@@ -239,106 +239,93 @@
                             </tbody>
                         </table>
                         <div class="card">
-                <div class="card-header">Custom Field</div>
+                            <div class="card-header">Custom Field</div>
 
-                <div class="card-body">
-		            @if($event->customfields)
-		            	
-				            @foreach ($event->customfields as $customfield)
-					            @switch($customfield->type)
-								   	@case(1)
-								        <div class="form-group row">
-				                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
+                            <div class="card-body">
+            		            @if($event->customfields)
+            			            @foreach ($event->customfields as $customfield)
+            				            @switch($customfield->type)
+            							   	@case(1)
+                                                <div class="form-group row">
+                                                    <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
 
-				                            <div class="col-md-6">
-				                                <select name="{{$customfield->name}}" id="{{$customfield->name}}" class="form-control @error($customfield->name) is-invalid @enderror">
+                                                    <div class="col-md-6">
+                                                        <select name="{{$customfield->name}}" id="{{$customfield->name}}" class="form-control @error($customfield->name) is-invalid @enderror">
 
-				                                	@foreach (preg_split('/\r\n|\r|\n/',$customfield->options) as $option)
-				                                    <option value="{{$option}}" @if(old($option)==$option) selected @endif>{{$option}}</option>
-				                                    @endforeach
-				                                </select>
+                                                            @foreach (preg_split('/\r\n|\r|\n/',$customfield->options) as $option)
 
-				                                @error($customfield->name)
-				                                    <span class="invalid-feedback" role="alert">
-				                                        <strong>{{ $message }}</strong>
-				                                    </span>
-				                                @enderror
-				                            </div>
-				                        </div>
-								        @break
-								    @case(2)
-								        <div class="form-group row">
-				                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
+                                                            <option value="{{$option}}" @if(old($customfield->name)?old($customfield->name):$customfield->customfieldvalues->first()->getValue($customfield)==$option) selected @endif>{{$option}}</option>
+                                                            @endforeach
+                                                        </select>
 
-				                            <div class="col-md-6 @error($customfield->name) is-invalid @enderror">
-				                            	@foreach (preg_split('/\r\n|\r|\n/',$customfield->options) as $option)
-				                                <input type="checkbox" name="{{$customfield->name}}[]" value="{{$option}}"> {{$option}}<br>
-				                                @endforeach
-
-
-				                                @error($customfield->name)
-				                                    <span class="invalid-feedback" role="alert">
-				                                        <strong>{{ $message }}</strong>
-				                                    </span>
-				                                @enderror
-				                            </div>
-				                        </div>
-								        @break
-								    @case(3)
-								        <div class="form-group row">
-				                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
-
-				                            <div class="col-md-6 @error($customfield->name) is-invalid @enderror">
-				                            	@foreach (preg_split('/\r\n|\r|\n/',$customfield->options) as $option)
-				                                <input type="radio" name="{{$customfield->name}}" value="{{$option}}"> {{$option}}<br>
-				                                @endforeach
-
-
-				                                @error($customfield->name)
-				                                    <span class="invalid-feedback" role="alert">
-				                                        <strong>{{ $message }}</strong>
-				                                    </span>
-				                                @enderror
-				                            </div>
-				                        </div>
-								        @break
-								    @case(4)
-								        <div class="form-group row">
-				                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
-
-				                            <div class="col-md-6">
-				                            	<textarea name="{{$customfield->name}}" class="form-control @error($customfield->name) is-invalid @enderror">{{old($customfield->name)}}</textarea>
-
-				                                @error($customfield->name)
-				                                    <span class="invalid-feedback" role="alert">
-				                                        <strong>{{ $message }}</strong>
-				                                    </span>
-				                                @enderror
-				                            </div>
-				                        </div>
-								        @break
-								    @default
-
-								        <div class="form-group row">
-				                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
-
-				                            <div class="col-md-6">
-
-				                                <input id="{{$customfield->name}}" type="text" class="form-control @error($customfield->name) is-invalid @enderror" name="{{$customfield->name}}" value="{{ old($customfield->name)}}" autocomplete="{{$customfield->name}}">
-
-				                                @error($customfield->name)
-				                                    <span class="invalid-feedback" role="alert">
-				                                        <strong>{{ $message }}</strong>
-				                                    </span>
-				                                @enderror
-				                            </div>
-				                        </div>
-								@endswitch
-							@endforeach
-						
-					@endif
-				</div>
-			</div>
+                                                        @error($customfield->name)
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                @break
+                                            @case(2)
+                                                <div class="form-check row ">
+                                                    <label for="{{$customfield->name}}" class="col-md-4 form-check-label @error($customfield->name) is-invalid @enderror text-md-right">{{$customfield->name}}</label>
+                                                    <div class="col-md-6">
+                                                            @foreach (preg_split('/\r\n|\r|\n/',$customfield->options) as $option)
+                                                            <input type="checkbox" class="form-check-input @error($customfield->name) is-invalid @enderror" name="{{$customfield->name}}[]"  @if(in_array($option,old($customfield->name)?old($customfield->name):$customfield->customfieldvalues->first()->getValue($customfield))) checked @endif value="{{$option}}"> {{$option}}<br>
+                                                            @endforeach
+                                                        @error($customfield->name)
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                @break
+                                            @case(3)
+                                                <div class="form-check row">
+                                                    <label for="{{$customfield->name}}" class="col-md-4 form-check-label @error($customfield->name) is-invalid @enderror text-md-right">{{$customfield->name}}</label>
+                                                    <div class="col-md-6 ">
+                                                        @foreach (preg_split('/\r\n|\r|\n/',$customfield->options) as $option)
+                                                        <input type="radio" name="{{$customfield->name}}" class="form-check-input @error($customfield->name) is-invalid @enderror" @if((old($customfield->name)?old($customfield->name):$customfield->customfieldvalues->first()->getValue($customfield))==$option) checked @endif value="{{$option}}"> {{$option}}<br>
+                                                        @endforeach
+                                                        @error($customfield->name)
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                @break
+                                            @case(4)
+                                                <div class="form-group row">
+                                                    <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
+                                                    <div class="col-md-6">
+                                                        <textarea name="{{$customfield->name}}" class="form-control @error($customfield->name) is-invalid @enderror">{{ old($customfield->name)?old($customfield->name):$customfield->customfieldvalues->first()->getValue($customfield)}}</textarea>
+                                                        @error($customfield->name)
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                @break
+            							    @default
+            							        <div class="form-group row">
+            			                            <label for="{{$customfield->name}}" class="col-md-4 col-form-label text-md-right">{{$customfield->name}}</label>
+            			                            <div class="col-md-6">
+            			                                <input id="{{$customfield->name}}" type="text" class="form-control @error($customfield->name) is-invalid @enderror" name="{{$customfield->name}}" value="{{ old($customfield->name)?old($customfield->name):$customfield->customfieldvalues->first()->getValue($customfield)}}" autocomplete="{{$customfield->name}}">
+            			                                @error($customfield->name)
+            			                                    <span class="invalid-feedback" role="alert">
+            			                                        <strong>{{ $message }}</strong>
+            			                                    </span>
+            			                                @enderror
+            			                            </div>
+            			                        </div>
+            							@endswitch
+            						@endforeach
+            					@endif
+            				</div>
+            			</div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -351,7 +338,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 @endsection
