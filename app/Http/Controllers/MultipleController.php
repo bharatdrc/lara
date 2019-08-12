@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class MultipleController extends Controller
 {
+    protected $rules =  [
+        'multiple' => ['required', 'array'],
+        'multiple.*.name' => ['required', 'string', 'max:255'],
+        'multiple.*.gender' => ['required', 'integer'],
+        'multiple.*.job' => ['required', 'string', 'max:255'],
+        'multiple.*.designation' => ['required', 'string', 'max:255'],
+        'multiple.*.contact' => ['required', 'integer'],
+        'multiple.*.postalcode' => ['required', 'string', 'max:255'],
+        'multiple.*.doj' => ['required', 'date', 'before:now'],
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +46,8 @@ class MultipleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,$this->rules);
+        dd($request);
     }
 
     /**

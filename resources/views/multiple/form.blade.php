@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Add multiple</div>
-
+{{dump($errors)}}
                 <div class="card-body">
                     <form method="POST" action="{{ route('storemultiple') }}" >
                         @csrf
@@ -17,12 +17,12 @@
 
                             <div class="col-md-6">
 
-                                <select name="multiple[0][gender]" id="gender" class="form-control @error('multiple[0][gender]') is-invalid @enderror">
+                                <select name="multiple[0][gender]" id="gender" class="form-control @error('multiple.0.gender') is-invalid @enderror">
                                     <option value="0">Male</option>
                                     <option value="0">Female</option>
                                 </select>
 
-                                @error('multiple[0][gender]')
+                                @error('multiple.0.gender')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -33,9 +33,9 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="multiple[0][name]" value="{{ old('name')}}" autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('multiple.0.name') is-invalid @enderror" name="multiple[0][name]" value="{{ old('multiple.0.name')}}" autocomplete="name" autofocus>
 
-                                @error('multiple[0][name]')
+                                @error('multiple.0.name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -46,9 +46,9 @@
                             <label for="job" class="col-md-4 col-form-label text-md-right">Job</label>
 
                             <div class="col-md-6">
-                                <input id="job" type="text" class="form-control @error('job') is-invalid @enderror" name="multiple[0][job]" value="{{ old('job')}}" autocomplete="job" autofocus>
+                                <input id="job" type="text" class="form-control @error('multiple.0.job') is-invalid @enderror" name="multiple[0][job]" value="{{ old('multiple.0.job')}}" autocomplete="job" autofocus>
 
-                                @error('multiple[0][job]')
+                                @error('multiple.0.job')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -59,9 +59,9 @@
                             <label for="designation" class="col-md-4 col-form-label text-md-right">Designation</label>
 
                             <div class="col-md-6">
-                                <input id="designation" type="text" class="form-control @error('designation') is-invalid @enderror" name="multiple[0][designation]" value="{{ old('designation')}}" autocomplete="designation" autofocus>
+                                <input id="designation" type="text" class="form-control @error('multiple.0.designation') is-invalid @enderror" name="multiple[0][designation]" value="{{ old('multiple.0.designation')}}" autocomplete="designation" autofocus>
 
-                                @error('multiple[0][designation]')
+                                @error('multiple.0.designation]')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -72,9 +72,9 @@
                             <label for="contact" class="col-md-4 col-form-label text-md-right">Contact</label>
 
                             <div class="col-md-6">
-                                <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="multiple[0][contact]" value="{{ old('contact')}}" autocomplete="contact" autofocus>
+                                <input id="contact" type="text" class="form-control @error('multiple.0.contact') is-invalid @enderror" name="multiple[0][contact]" value="{{ old('multiple.0.contact')}}" autocomplete="contact" autofocus>
 
-                                @error('multiple[0][contact]')
+                                @error('multiple.0.contact')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -85,9 +85,9 @@
                             <label for="postalcode" class="col-md-4 col-form-label text-md-right">Postal Code</label>
 
                             <div class="col-md-6">
-                                <input id="postalcode" type="text" class="form-control @error('postalcode') is-invalid @enderror" name="multiple[0][postalcode]" value="{{ old('postalcode')}}" autocomplete="postalcode" autofocus>
+                                <input id="postalcode" type="text" class="form-control @error('multiple.0.postalcode') is-invalid @enderror" name="multiple[0][postalcode]" value="{{ old('multiple.0.postalcode')}}" autocomplete="postalcode" autofocus>
 
-                                @error('postalcode')
+                                @error('multiple.0.postalcode')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -98,9 +98,9 @@
                             <label for="doj" class="col-md-4 col-form-label text-md-right">DOJ</label>
 
                             <div class="col-md-6">
-                                <input id="doj" type="text" class="form-control datepicker @error('doj') is-invalid @enderror" name="multiple[0][doj]" value="{{ old('doj')}}" autocomplete="doj" autofocus>
+                                <input id="doj" type="text" class="form-control datepicker @error('multiple.0.doj') is-invalid @enderror" name="multiple[0][doj]" value="{{ old('multiple.0.doj')}}" autocomplete="doj" autofocus>
 
-                                @error('multiple[0][doj]')
+                                @error('multiple.0.doj')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -110,6 +110,7 @@
                         </span>
                         </span>
 
+                        
                         <a href="javascript:void(0);" id="addmultiple" >Add</a>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -141,8 +142,39 @@
                     close: 'fa fa-remove'
                 }
             });
-            $('#addmultiple').click(function(){
-                $( ".fields" ).clone().appendTo( ".fields" ).find("input").val("").end();
+             $(document).on("click","#addmultiple", function(){
+                $( ".fields .fieldrow:first" ).clone().appendTo( ".fields" ).find("input").val("").end();
+                var currentindex = $( ".fields").find('.fieldrow').index($(".fieldrow:last"));
+                
+                $(".fieldrow:last").find(':input,:radio,:checkbox').each(function(i) {
+                    var inputName = $(this).attr('name');
+                    inputName=inputName.replace("[0]", "["+parseInt(currentindex)+"]");
+                    $(this).attr("name",inputName);
+                    if($(this).hasClass('datepicker')){
+                        $(this).datetimepicker({
+                            format: 'YYYY-MM-DD',
+                            minDate: moment(),
+                            icons: {
+                                time: "fa fa-clock-o",
+                                date: "fa fa-calendar",
+                                up: "fa fa-chevron-up",
+                                down: "fa fa-chevron-down",
+                                previous: 'fa fa-chevron-left',
+                                next: 'fa fa-chevron-right',
+                                today: 'fa fa-screenshot',
+                                clear: 'fa fa-trash',
+                                close: 'fa fa-remove'
+                            }
+                        });
+                    }
+                    /*var myfield = myfields.eq(i);
+                    myfield.addClass("myflied_"+i);*/
+                });
+                
+                $(".fieldrow:last").append( '<a href="javascript:void(0);" class="remove" >remove</a>' );
+            });
+            $(document).on("click",".remove", function(){
+              $(this).closest('.fieldrow').remove();
             });
 
         });
