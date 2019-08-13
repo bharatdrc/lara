@@ -115,7 +115,7 @@
                             @endcan
 
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="languanavbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->person->firstname }} {{ Auth::user()->person->lastname }} <span class="caret"></span>
                                 </a>
 
@@ -131,6 +131,19 @@
                                     </form>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a id="languagenavbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Lang <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languagenavbarDropdown">
+                                   <a class="dropdown-item" href="lang/en" id="en">English <img src="{{asset('img/en.png')}}" width="50px" height="20x"></a>
+
+                                    <a class="dropdown-item" href="lang/de" id="de">Dutch <img src="{{asset('img/zh.png')}}" width="50px" height="20x"></a>
+                                </div>
+                            </li>
+                                                  
+
                         @endguest
                     </ul>
                 </div>
