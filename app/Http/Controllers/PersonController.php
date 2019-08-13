@@ -41,6 +41,26 @@ class PersonController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function list(Request $request)
+    {
+        if($request->has('q')){
+
+            $persons = Person::where('firstname','like','%'.$request->q.'%')->orWhere('firstname','like','%'.$request->q.'%')->orWhere('jobtitle','like','%'.$request->q.'%')->orWhere('profiletext','like','%'.$request->q.'%')->orWhere('interestedin','like','%'.$request->q.'%')->orWhere('canprovide','like','%'.$request->q.'%')->orWhereHas('personUser', function (\Illuminate\Database\Eloquent\Builder $query) use ($request)  {
+                $query->where('email', 'like', '%'.$request->q.'%');
+            })->get();
+           // $persons->appends(['q' => $request->q]);
+        }else{
+            $persons = Person::all();
+        }
+        return view('person.list',compact('persons'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

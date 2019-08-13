@@ -29,4 +29,12 @@ class Person extends Model
     {
     	return $this->belongsTo('App\Company','companyid');
     }
+
+      /**
+     * Get the company record associated with the person.
+     */
+    public function personUser()
+    {
+        return $this->belongsTo('App\User','user');
+    }
 }

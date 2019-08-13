@@ -22,6 +22,7 @@ Route::get('/login', 'HomeController@index')->name('login');
 Route::middleware(['verified'])->group(function () {
 
 	Route::get('/dashboard', 'PersonController@index')->name('dashboard');
+	Route::any('/listprofile', 'PersonController@list')->name('listprofile');
 	Route::get('/updateprofile', 'PersonController@update')->name('updateprofile');
 	Route::patch('/stoteprofile', 'PersonController@storeupdate')->name('storeupdate');
 
@@ -90,3 +91,6 @@ Route::get('/activateuserpartcipation/{participation}', 'EventParticipationContr
 
 Route::get('/addmultiple', 'MultipleController@create')->name('addmultiple');
 Route::post('/storemultiple', 'MultipleController@store')->name('storemultiple');
+Route::get('/editmultiple', 'MultipleController@edit')->name('editmultiple');
+Route::patch('/updatemultiple', 'MultipleController@update')->name('updatemultiple');
+Route::delete('/deletemultiple', 'MultipleController@destroy')->name('deletemultiple');

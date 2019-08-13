@@ -129,9 +129,30 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+            'multiple.*.name'=>[
+                'required' => ' The name  field is required',
+            ],
+            'multiple.*.job'=>[
+                'required' => ' The job  field is required',
+            ],
+            'multiple.*.designation'=>[
+                'required' => ' The designation  field is required',
+            ],
+            'multiple.*.contact'=>[
+                'required' => ' The contact  field is required',
+            ],
+            'multiple.*.postalcode'=>[
+                'required' => ' The postalcode  field is required',
+            ],
+            'multiple.*.contact'=>[
+                'required' => ' The contact  field is required',
+            ],
+            'multiple.*.doj'=>[
+                'required' => ' The doj field is required',
+            ],
+            'attribute-name' => [
+                'rule-name' => 'custom-message',
+            ],
     ],
 
     /*

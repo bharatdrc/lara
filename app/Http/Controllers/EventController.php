@@ -184,7 +184,7 @@ class EventController extends Controller
         }
 
         $this->validate($request,$this->rules);
-dd($request);
+
         $titleImageName = $logoName = null;
 
         if($request->hasFile('titleimage')){
