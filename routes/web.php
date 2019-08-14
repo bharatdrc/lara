@@ -23,7 +23,7 @@ Route::get('lang/{locale}', 'LocalizationController@index');
 
 Route::middleware(['verified'])->group(function () {
 
-	//Route::prefix('{lang}')->group(function () {
+	Route::prefix('{_locale?}')->group(function () {
 		Route::get('/dashboard', 'PersonController@index')->name('dashboard');
 		Route::any('/listprofile', 'PersonController@list')->name('listprofile');
 		Route::get('/updateprofile', 'PersonController@update')->name('updateprofile');
@@ -86,7 +86,7 @@ Route::middleware(['verified'])->group(function () {
 			Route::get('/sendactivationreminder/{eventparticipation}', 'EventParticipationController@sendActivationReminder')->name('sendActivationReminder');*/
 		});
 
-	//});
+	});
 });
 
 Route::get('/activateuser/{user}', 'EventParticipationController@activateuser')->name('activateuser');

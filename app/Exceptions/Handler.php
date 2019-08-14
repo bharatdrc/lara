@@ -46,6 +46,19 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        dump($exception);
+        dd($exception instanceof NotFoundHttpException);
+        if($exception instanceof NotFoundHttpException){
+
+            $config = app('config');
+            $defaultLocal = $config('app.locale');
+            $locale = $request->segment(1);
+
+            if(!in_array($name,config('app.languages'))){
+                $url = $request->getUriForPath('/'.$defaultLocal.$request->getPathInfo());
+                return redirect($url,301);
+            }  
+        }
         return parent::render($request, $exception);
     }
 }
