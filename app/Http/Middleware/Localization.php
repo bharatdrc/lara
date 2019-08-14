@@ -16,15 +16,28 @@ class Localization
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {   
+    {
+
         /*App::setLocale('de');*/
-        if (session()->has('locale')) {
-            App::setLocale(session()->get('locale'));
-            $locale = session()->get('locale');
+        $config = app('config');
+        $locale = $request->segment(1);
+//dd($locale);
+        if (session()->has('locale') && ($locale==session()->get('locale'))) {
+            App::setLocale($locale);
             URL::defaults(['_locale' => $locale]);
           //  dd($locale);
         }
-        URL::defaults(['_locale' => 'en']);
+        elseif(in_array($locale,$config['app.languages'])){
+
+            App::setLocale($locale);
+            session()->put('locale', $locale);
+            URL::defaults(['_locale' => $locale]);
+        }
+        else{
+            URL::defaults(['_locale' => 'en']);
+            App::setLocale('en');
+        }
+
 
        // url()->defaults(array('_locale'=>'de'));
         return $next($request);

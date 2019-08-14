@@ -18,7 +18,9 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/login', 'HomeController@index')->name('login');
-Route::get('lang/{locale}', 'LocalizationController@index');
+Route::prefix('{_locale?}')->group(function () {
+	Route::get('lang/{locale}', 'LocalizationController@index')->name('localisation');
+});
 
 
 Route::middleware(['verified'])->group(function () {
@@ -86,14 +88,16 @@ Route::middleware(['verified'])->group(function () {
 			Route::get('/sendactivationreminder/{eventparticipation}', 'EventParticipationController@sendActivationReminder')->name('sendActivationReminder');*/
 		});
 
+		Route::get('/addmultiple', 'MultipleController@create')->name('addmultiple');
+		Route::post('/storemultiple', 'MultipleController@store')->name('storemultiple');
+		Route::get('/editmultiple', 'MultipleController@edit')->name('editmultiple');
+		Route::patch('/updatemultiple', 'MultipleController@update')->name('updatemultiple');
+		Route::delete('/deletemultiple', 'MultipleController@destroy')->name('deletemultiple');
+
 	});
 });
 
 Route::get('/activateuser/{user}', 'EventParticipationController@activateuser')->name('activateuser');
 Route::get('/activateuserpartcipation/{participation}', 'EventParticipationController@activateUserPartcipation')->name('activateuserpartcipation');
 
-Route::get('/addmultiple', 'MultipleController@create')->name('addmultiple');
-Route::post('/storemultiple', 'MultipleController@store')->name('storemultiple');
-Route::get('/editmultiple', 'MultipleController@edit')->name('editmultiple');
-Route::patch('/updatemultiple', 'MultipleController@update')->name('updatemultiple');
-Route::delete('/deletemultiple', 'MultipleController@destroy')->name('deletemultiple');
+

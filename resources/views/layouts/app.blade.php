@@ -137,12 +137,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languagenavbarDropdown">
-                                   <a class="dropdown-item" href="lang/en" id="en">English <img src="{{asset('img/en.png')}}" width="50px" height="20x"></a>
+                                   <a class="dropdown-item" href="{{route('localisation',['locale'=>'en'])}}" id="en">English <img src="{{asset('img/en.png')}}" width="50px" height="20x"></a>
 
-                                    <a class="dropdown-item" href="lang/de" id="de">Dutch <img src="{{asset('img/zh.png')}}" width="50px" height="20x"></a>
+                                    <a class="dropdown-item" href="{{route('localisation',['locale'=>'de'])}}" id="de">Dutch <img src="{{asset('img/zh.png')}}" width="50px" height="20x"></a>
                                 </div>
                             </li>
-                                                  
+
 
                         @endguest
                     </ul>

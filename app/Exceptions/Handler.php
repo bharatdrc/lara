@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use  \Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -46,18 +47,18 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        dump($exception);
-        dd($exception instanceof NotFoundHttpException);
+
         if($exception instanceof NotFoundHttpException){
 
             $config = app('config');
-            $defaultLocal = $config('app.locale');
-            $locale = $request->segment(1);
 
-            if(!in_array($name,config('app.languages'))){
+            $defaultLocal = $config['app']['locale'];
+            $locale = $request->segment(1);
+           // dd($locale);
+            if(!in_array($locale,$config['app.languages']) && (strlen($locale)!=2)){
                 $url = $request->getUriForPath('/'.$defaultLocal.$request->getPathInfo());
                 return redirect($url,301);
-            }  
+            }
         }
         return parent::render($request, $exception);
     }
