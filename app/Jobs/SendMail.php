@@ -31,6 +31,6 @@ class SendMail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to('tinku@gmail.com')->from('bharatmca28@gmail.com')->send(new SendMailable());
+        Mail::to('tinku@gmail.com')->send(new SendMailable());
     }
 }

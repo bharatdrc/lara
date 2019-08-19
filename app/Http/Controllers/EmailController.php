@@ -13,16 +13,17 @@ class EmailController extends Controller
 {
     public function sendEmail()
     {
-      // Cache::put('test','test12');
+       /*Cache::put('test','test12');
        if(Cache::has('test')){
        	dd(Cache::get('test'));
-       }
-       
-        
+       }*/
+
+
         Log::info("Request cycle without Queues started");
      // dd(Date('H:m:s',strtotime(now()->addMinutes(1))));
        // Mail::to('mail@appdividend.com')->send(new SendMailable());
-       // dispatch(new SendMail())->delay(now()->addMinutes(1))->onConnection('database');
+         SendMail::dispatch()->onConnection('database')->onQueue('default');
+        //dispatchNow(new SendMail())->onConnection('database')->onQueue('default');
         Log::info("Request cycle without Queues finished");
     }
 }
