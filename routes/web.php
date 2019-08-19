@@ -99,5 +99,5 @@ Route::middleware(['verified'])->group(function () {
 
 Route::get('/activateuser/{user}', 'EventParticipationController@activateuser')->name('activateuser');
 Route::get('/activateuserpartcipation/{participation}', 'EventParticipationController@activateUserPartcipation')->name('activateuserpartcipation');
-
+Route::get('/sendqueuemail', 'EmailController@sendEmail')->name('sendqueuemail');
 
