@@ -7,6 +7,14 @@ use Faker\Generator as Faker;
 
 $factory->define(Company::class, function (Faker $faker) {
     return [
-        //
+        'companyname' => $faker->companyname,
+        
+        'address' =>  => function () {
+            return factory(App\Address::class)->create()->id;
+        },
+        'invoiceaddress' =>  => function () {
+            return factory(App\Address::class)->create()->id;
+        },
+        
     ];
 });
