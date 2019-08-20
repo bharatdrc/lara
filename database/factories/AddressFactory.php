@@ -7,12 +7,12 @@ use Faker\Generator as Faker;
 
 $factory->define(Address::class, function (Faker $faker) {
     return [
-        'housenumber' => $faker->housenumber,
-        'street' => $faker->street,
+        'housenumber' => $faker->buildingNumber,
+        'street' => $faker->streetName,
         'city' => $faker->city,
         'country' => $faker->country,
-        'postalcode' => $faker->postalcode,
-        'additionalinfo' => $faker->ladditionalinfoanguage,
+        'postalcode' => $faker->postcode,
+        'additionalinfo' => $faker->text(200),
         
     ];
 });

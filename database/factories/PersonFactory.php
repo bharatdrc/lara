@@ -7,18 +7,18 @@ use Faker\Generator as Faker;
 
 $factory->define(Person::class, function (Faker $faker) {
     return [
-        'salutation' => NULL,
-        'firstname' => $faker->firstname,
-        'lastname' => $faker->lastname,
-        'companyid' =>  => function () {
-            return factory(App\Compony::class)->create()->id;
+        'salutation' => null,
+        'firstname' => $faker->firstName,
+        'lastname' => $faker->lastName,
+        'companyid' => function () {
+            return factory(App\Company::class)->create()->id;
         },
-        'jobtitle' => $faker->jobtitle,
-        'profiletext' => $faker->profiletext,
-        'profileimage' => $faker->profileimage,
-        'language' => $faker->language,
-        'interestedin' => $faker->interestedin,
-        'canprovide' => $faker->canprovide,
+        'jobtitle' => $faker->word,
+        'profiletext' => array_random([$faker->sentence(6),null]),
+        'profileimage' => null,
+        'language' => $faker->randomElement([0,1]),
+        'interestedin' => implode(',', $faker->randomElements(['java','php','c','c++'])),
+        'canprovide' => implode(',', $faker->randomElements(['java','php','c','c++'])),
         'user' => function () {
             return factory(App\User::class)->create()->id;
         }
