@@ -8,20 +8,17 @@ use Faker\Generator as Faker;
 $factory->define(Event::class, function (Faker $faker) {
     return [
         'eventname' => $faker->unique()->word,
-        'shortname' => $faker->firstName,
-        'subtitle' => $faker->lastName,
-        'companyid' => function () {
-            return factory(App\Company::class)->create()->id;
-        },
-        'url' => $faker->word,
-        'email' => array_random([$faker->sentence(6),null]),
-        'titleimage' => null,
-        'logo' => $faker->randomElement([0,1]),
-        'language' => implode(',', $faker->randomElements(['java','php','c','c++'])),
-        'description' => implode(',', $faker->randomElements(['java','php','c','c++'])),
-        'customcss' => implode(',', $faker->randomElements(['java','php','c','c++'])),
+        'shortname' => $faker->unique()->word,
+        'subtitle' => $faker->unique()->word,
+        'url' => $faker->url,
+        'email' => $faker->safeEmail,
+        'titleimage' => $faker->image('public/storage/titleimage', 400, 300, false),
+        'logo' => $faker->image('public/storage/logo', 400, 300, false),
+        'language' => $faker->randomElement([0,1]),
+        'description' => $faker->text(200),
+        'customcss' => $faker->text(200),
         'company_id' => function () {
-            return factory(App\User::class)->create()->id;
+            return App\Company::All()->random(rand(1, 2))->first()->id;
         }
     ];
 });
