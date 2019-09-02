@@ -44,9 +44,9 @@ class SendEmails extends Command
         $partcipants = $event->participants;
         $users = [];
         foreach ($partcipants as $partcipant) {
-        	if($partcipant->status==0){
+        	//if($partcipant->status==0){
         		event(new \App\Events\SendEmail($partcipant,'emails.sendwelcomenotification'));
-        	}
+        	//}
         }
         $this->info('wellcome mail sent for event : '.$eventId);
     }
