@@ -94,6 +94,10 @@ Route::middleware(['verified'])->group(function () {
 		Route::patch('/updatemultiple', 'MultipleController@update')->name('updatemultiple');
 		Route::delete('/deletemultiple', 'MultipleController@destroy')->name('deletemultiple');
 
+
+		Route::get('/vueform', 'VueController@create')->name('vueform');
+		Route::post('/storevueform', 'VueController@store')->name('storevueform');
+
 	});
 });
 
