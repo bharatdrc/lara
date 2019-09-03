@@ -24,6 +24,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "bootstrap-datetimepicker": "0.0.7"
+    "bootstrap-datetimepicker": "0.0.7",
+    "eonasdan-bootstrap-datetimepicker": "4.17.47"
   }
 }

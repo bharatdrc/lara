@@ -69303,43 +69303,117 @@ function () {
     value: function save(error) {
       this.errors = error;
     }
+  }, {
+    key: "has",
+    value: function has(field) {
+      return this.errors.hasOwnProperty(field);
+    }
+  }, {
+    key: "clean",
+    value: function clean() {
+      delete this.error;
+    }
   }]);
 
   return Error;
 }();
 
+var Form =
+/*#__PURE__*/
+function () {
+  function Form(data) {
+    _classCallCheck(this, Form);
+
+    this.originaldata = data;
+
+    for (var field in data) {
+      this[field] = data[field];
+    }
+
+    this.formerrors = new Error();
+  }
+
+  _createClass(Form, [{
+    key: "data",
+    value: function data() {
+      var data = Object.assign({}, this.originaldata);
+      delete data.formerrors;
+      delete data.originaldata;
+      return data;
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit(e) {
+      formthis = this;
+      e.preventDefault();
+      axios.post('http://meet.com/en/storevueform', formthis.data()).then(function (response) {
+        formthis.onSucess(response);
+      })["catch"](function (error) {
+        formthis.onFail(error);
+      });
+    }
+  }, {
+    key: "onFail",
+    value: function onFail(error) {
+      this.formerrors.save(error.response.data.errors);
+    }
+  }, {
+    key: "onSucess",
+    value: function onSucess(response) {
+      console.log(response.data.success);
+      this.reset();
+    }
+  }, {
+    key: "reset",
+    value: function reset() {
+      this.originaldata.name = '';
+      this.originaldata.address = '';
+    }
+  }]);
+
+  return Form;
+}();
+
 new Vue({
   el: '#app',
   data: {
-    name: '',
-    address: '',
-    formerrors: new Error()
-  },
-  methods: {
-    onSubmit: function onSubmit() {
-      axios.post('http://meet.com/en/storevueform', this.$data).then(function (response) {
-        console.log(response);
-      })["catch"](function (error) {
-        console.log(this.formerrors);
-        this.formerrors.save(error.response.data.errors);
-        /*			   console.log(error);*/
-      });
-    }
-    /*axios.get('/storevueform')
-    .then(function (response) {
-     // handle success
-     console.log(response.data);
+    form: new Form({
+      name: '',
+      address: ''
     })
-    .catch(function (error) {
-     // handle error
-     console.log(error);
-    })
-    .finally(function () {
-     // always executed
-    });*/
-
   }
 });
+/*simple way
+
+new Vue({
+    el: '#app',
+    data:{
+    	name :'',
+    	address :'',
+    	formerrors : new Error()
+    },
+    methods:{
+    	onSubmit:function(e){
+    		e.preventDefault();
+    		vuethis = this;
+    		axios.post('http://meet.com/en/storevueform', this.$data)
+			.then(function (response) {
+			   vuethis.onSucess(response);
+			})
+			.catch(function (error) {
+				vuethis.formerrors.save(error.response.data.errors);
+			});
+    	},
+    	onSucess:function(response){
+    		console.log(response.data.success);
+    		this.name ='';
+    		this.address ='';
+    	}
+
+    }
+});
+*/
+
 window.moment = __webpack_require__(/*! moment/moment */ "./node_modules/moment/moment.js"); //import 'bootstrap-datetimepicker-npm/src/js/bootstrap-datetimepicker.js';
 //require('bootstrap-datetimepicker-npm');
 
@@ -69424,8 +69498,8 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/lara/blog/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/lara/blog/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/prac/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/prac/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

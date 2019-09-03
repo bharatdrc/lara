@@ -46,7 +46,8 @@ class VueController extends Controller
             'name'=>$request->name,
             'address'=>$request->address,
         ]);
-        return redirect('vueform')->with('success','Item Created');;
+
+        return ['success'=>'Item Created'];
     }
 
     /**

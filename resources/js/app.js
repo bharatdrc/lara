@@ -29,7 +29,7 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
- class Error{
+class Error{
  	constructor(){
  		this.errors ={};
  	}
@@ -43,7 +43,66 @@ window.Vue = require('vue');
  	{
  		this.errors = error;
  	}
- } 
+ 	has(field){
+ 		return this.errors.hasOwnProperty(field);
+ 	}
+ 	clean(){
+ 		delete this.error;
+ 	}
+ }
+
+class Form{
+ 	constructor(data){
+ 		this.originaldata = data;
+ 		for(let field in data){
+ 			this[field] = data[field];
+ 		}
+ 		this.formerrors = new Error()
+ 	}
+ 	data(){
+
+ 		let data = Object.assign({}, this.originaldata);
+ 		delete data.formerrors;
+ 		delete data.originaldata;
+ 		return data;
+ 	}
+ 	onSubmit(e){
+
+ 		formthis = this;
+ 		e.preventDefault();
+		axios.post('http://meet.com/en/storevueform', formthis.data())
+		.then(function (response) {
+		   formthis.onSucess(response);
+		})
+		.catch(function (error) {
+			formthis.onFail(error);
+		});
+ 	}
+ 	onFail(error){
+ 		this.formerrors.save(error.response.data.errors)
+ 	}
+ 	onSucess(response){
+ 		console.log(response.data.success);
+ 		this.reset();
+ 	}
+ 	reset(){
+ 		this.originaldata.name='';
+ 		this.originaldata.address='';
+ 	}
+
+
+ }
+
+new Vue({
+    el: '#app',
+    data:{
+    	form: new Form({name:'',address:''}),
+    }
+});
+
+
+
+/*simple way
 
 new Vue({
     el: '#app',
@@ -51,34 +110,28 @@ new Vue({
     	name :'',
     	address :'',
     	formerrors : new Error()
-    },	
+    },
     methods:{
-    	onSubmit:function(){
+    	onSubmit:function(e){
+    		e.preventDefault();
+    		vuethis = this;
     		axios.post('http://meet.com/en/storevueform', this.$data)
 			.then(function (response) {
-			   console.log(response);
+			   vuethis.onSucess(response);
 			})
 			.catch(function (error) {
-				console.log(this.formerrors);
-				this.formerrors.save(error.response.data.errors); 
-				
-/*			   console.log(error);*/
+				vuethis.formerrors.save(error.response.data.errors);
 			});
+    	},
+    	onSucess:function(response){
+    		console.log(response.data.success);
+    		this.name ='';
+    		this.address ='';
     	}
-    	/*axios.get('/storevueform')
-		  .then(function (response) {
-		    // handle success
-		    console.log(response.data);
-		  })
-		  .catch(function (error) {
-		    // handle error
-		    console.log(error);
-		  })
-		  .finally(function () {
-		    // always executed
-		  });*/
+
     }
 });
+*/
 
 window.moment = require('moment/moment');
 //import 'bootstrap-datetimepicker-npm/src/js/bootstrap-datetimepicker.js';
