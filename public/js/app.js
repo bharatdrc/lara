@@ -69342,17 +69342,6 @@ function () {
       return data;
     }
   }, {
-    key: "onSubmit",
-    value: function onSubmit(e) {
-      formthis = this;
-      e.preventDefault();
-      axios.post('http://meet.com/en/storevueform', formthis.data()).then(function (response) {
-        formthis.onSucess(response);
-      })["catch"](function (error) {
-        formthis.onFail(error);
-      });
-    }
-  }, {
     key: "onFail",
     value: function onFail(error) {
       this.formerrors.save(error.response.data.errors);
@@ -69362,6 +69351,22 @@ function () {
     value: function onSucess(response) {
       console.log(response.data.success);
       this.reset();
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit() {
+      formthis = this;
+      /*e.preventDefault();*/
+
+      return new Promise(function (resolve, reject) {
+        axios.post('http://meet.com/en/storevueform', formthis.data()).then(function (response) {
+          formthis.onSucess(response);
+          resolve(response);
+        })["catch"](function (error) {
+          formthis.onFail(error);
+          reject(error);
+        });
+      });
     }
   }, {
     key: "reset",
@@ -69381,6 +69386,16 @@ new Vue({
       name: '',
       address: ''
     })
+  },
+  methods: {
+    onSubmit: function onSubmit(e) {
+      e.preventDefault();
+      this.form.onSubmit().then(function (data) {
+        console.log('in then promise');
+      })["catch"](function (errors) {
+        console.log('in catch promise');
+      });
+    }
   }
 });
 /*simple way

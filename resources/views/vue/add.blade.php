@@ -8,7 +8,7 @@
                 <div class="card-header">Add Items</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('storevueform') }}" @submit.prevent="form.onSubmit($event)" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('storevueform') }}" @submit.prevent="onSubmit($event)" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">

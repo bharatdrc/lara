@@ -66,18 +66,6 @@ class Form{
  		delete data.originaldata;
  		return data;
  	}
- 	onSubmit(e){
-
- 		formthis = this;
- 		e.preventDefault();
-		axios.post('http://meet.com/en/storevueform', formthis.data())
-		.then(function (response) {
-		   formthis.onSucess(response);
-		})
-		.catch(function (error) {
-			formthis.onFail(error);
-		});
- 	}
  	onFail(error){
  		this.formerrors.save(error.response.data.errors)
  	}
@@ -85,6 +73,24 @@ class Form{
  		console.log(response.data.success);
  		this.reset();
  	}
+ 	onSubmit(){
+
+ 		formthis=this;
+ 		/*e.preventDefault();*/
+ 		return new Promise(function(resolve, reject){
+ 			axios.post('http://meet.com/en/storevueform', formthis.data())
+			.then(function (response) {
+			   formthis.onSucess(response);
+			   resolve(response);
+			})
+			.catch(function (error) {
+				formthis.onFail(error);
+				reject(error);
+			});
+ 		});
+
+ 	}
+
  	reset(){
  		this.originaldata.name='';
  		this.originaldata.address='';
@@ -97,6 +103,18 @@ new Vue({
     el: '#app',
     data:{
     	form: new Form({name:'',address:''}),
+    },
+    methods:{
+    	onSubmit(e){
+	 		e.preventDefault();
+			this.form.onSubmit()
+			.then(function(data){
+				console.log('in then promise');
+			})
+			.catch(function(errors){
+				console.log('in catch promise');
+			});
+	 	}
     }
 });
 
