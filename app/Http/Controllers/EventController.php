@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use PDF;
 
 class EventController extends Controller
 {
@@ -285,5 +286,18 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         //
+    }
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Event  $event
+     * @return \Illuminate\Http\Response
+     */
+    public function showpdf(Event $event)
+    {
+
+        $pdf = PDF::loadView('event.pdf', ['event'=>$event]);
+        return $pdf->download('test.pdf');
     }
 }

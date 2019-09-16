@@ -1,3 +1,14 @@
+var $ = require("jquery");
+
+
+/*window.Vue = require('vue');*/
+
+import Vue from 'vue';
+import axios from 'axios';
+
+window.Vue = Vue;
+window.axios = axios;
+
 window._ = require('lodash');
 
 /**
@@ -19,7 +30,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+/*window.axios = require('axios');*/
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

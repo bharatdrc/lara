@@ -1,15 +1,8 @@
-@extends('layouts.app')
 
-@section('content')
 <div class="container">
     <div class="row ">
         <div class="col-md-8">
-        	@if(Session::has('success'))
-			    <div class="alert alert-success">
-			        {{ Session::get('success') }}
-			    </div>
-			@endif
-			<div class="card">
+        	<div class="card">
 				@if($event->titleimage)
 				<div class="card-header"><img src="{{URL::asset('/storage/titleimage/'.$event->titleimage)}}" alt="profile Pic" height="200" width="700"></div>
 				@endif
@@ -239,38 +232,3 @@
         </div>
     </div>
 </div>
-<br>
-<hr>
-<a href="{{route('showpdf',['event' => $event->id])}}">Show pdf</a>
-<hr>
-<br/>
-<script type="text/javascript">
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $("#sendWelcome").click(function(e){
-        e.preventDefault();
-        /*var name = $("input[name=name]").val();
-        var password = $("input[name=password]").val();
-        var email = $("input[name=email]").val();*/
-        $.ajax({
-           type:'POST',
-           url:"{{route('sendWelcomeNotification',['eventparticipation'=>1])}}",
-          data:{name:'test'},
-           success:function(data){
-
-              $('#participant-card .card-body').html('');
-
-              $('#participant-card .card-body').html(data.responseBody);
-           }
-        });
-	});
-
-</script>
-
-
-@endsection

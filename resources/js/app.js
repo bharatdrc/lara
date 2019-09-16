@@ -5,11 +5,9 @@
  */
 //import $ from 'jquery';
 //window.$ = window.jQuery = $;
-var $ = require("jquery");
 
 require('./bootstrap');
 
-window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your

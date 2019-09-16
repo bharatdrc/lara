@@ -61,6 +61,8 @@ Route::middleware(['verified'])->group(function () {
 			Route::get('/editevent/{event}', 'EventController@edit')->name('editevent');
 			Route::patch('/updateevent/{event}', 'EventController@update')->name('updateevent');
 			Route::get('/showevent/{event}', 'EventController@show')->name('showevent');
+			Route::get('/showpdf/{event}', 'EventController@showpdf')->name('showpdf');
+
 		});
 
 		Route::prefix('timeslot')->group(function () {
