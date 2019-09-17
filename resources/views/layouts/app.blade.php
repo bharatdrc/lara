@@ -9,7 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -112,6 +112,19 @@
                                 </div>
                             </li>
                             @endcan
+
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdownStores" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Stores <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownStores">
+                                    <a class="nav-link" href="{{ route('storelist') }}"> Manage Stores</a>
+                                    <a class="nav-link" href="{{ route('addstore') }}"> Add Stores</a>
+                                </div>
+                            </li>
+
 
                             <li class="nav-item dropdown">
                                 <a id="languanavbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -100,6 +100,20 @@ Route::middleware(['verified'])->group(function () {
 		Route::get('/vueform', 'VueController@create')->name('vueform');
 		Route::post('/storevueform', 'VueController@store')->name('storevueform');
 
+		Route::prefix('store')->group(function () {
+			Route::get('/liststore/', 'StoreController@index')->name('storelist');
+			Route::get('/addstore/', 'StoreController@create')->name('addstore');
+			Route::post('/savestore/', 'StoreController@store')->name('savestore');
+			Route::get('/editstore/{store}', 'StoreController@edit')->name('editstore');
+			Route::post('/updatestore/', 'StoreController@update')->name('updatestore');
+
+			Route::get('/addrevenue/{store}', 'RevenueController@create')->name('addrevenue');
+			Route::post('/saverevenue/', 'RevenueController@store')->name('saverevenue');
+
+			/*Route::post('/sendwelcomenotification/{eventparticipation}', 'EventParticipationController@sendWelcomeNotification')->name('sendWelcomeNotification');
+			Route::get('/sendactivationreminder/{eventparticipation}', 'EventParticipationController@sendActivationReminder')->name('sendActivationReminder');*/
+		});
+
 	});
 });
 
