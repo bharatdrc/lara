@@ -16,7 +16,7 @@
 	                    <th>Target</th>
 	                    <th>Manager</th>
 	                    <th>Action</th>
-
+	                    <th></th>
 	                </tr>
 
 	            </thead>
@@ -28,6 +28,12 @@
 					        <td>{{ $store->target }}</td>
 					        <td>{{ $store->user->person->firstname }} {{ $store->user->person->lastname }}</td>
 					        <td><a href="{{route('editstore',['store' => $store->id])}}">Edit</a></td>
+					        <td>
+						    	<a href="{{route('addrevenue',['store'=>$store])}}">Add Today Revenue</a>
+						    </td>
+						    <td>
+						    	<a href="{{route('listrevenue',['store'=>$store])}}">Show Revenue</a>
+						    </td>
 					    </tr>
 					    @endforeach
 					@else
@@ -76,9 +82,7 @@
 
 
         </div>
-        <div class="col-md-8">
-	    	<a href="{{route('addrevenue',['store'=>$store])}}">Add Today Revenue</a>
-	    </div>
+       
 
 
     </div>

@@ -4,22 +4,20 @@ namespace App\Http\Controllers;
 
 use App\revenue;
 use Illuminate\Http\Request;
+use App\Rules\uniqueDayStoreRevenue;
 
 class RevenueController extends Controller
 {
-    protected $rules = [
-        'dailyrevenue' => ['required', 'regex:/^\d+(\.\d{1,2})?$/'],
-        'store' => ['required', 'numeric']
-    ];
+    
 
     /**
      * Display a listing of the resource.
-     *
+     * @param \App\store $store;
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(\App\store $store)
     {
-        //
+        return view('store.listrevenue',['store'=>$store]);
     }
 
 
@@ -41,7 +39,12 @@ class RevenueController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,$this->rules);
+        $this->validate($request,
+            [
+                'store' => ['required', 'numeric'],
+                'dailyrevenue' => ['required', new uniqueDayStoreRevenue($request->store) ],
+                
+            ]);
 
         $revenue = \App\revenue::create([
             'dailyrevenue' => $request->dailyrevenue

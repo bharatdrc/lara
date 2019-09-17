@@ -1,0 +1,842 @@
+[2019-08-07 16:54:02] local.DEBUG: Message-ID: <a627af169c78d6ed6c53c462109830de@meet.com>
+Date: Wed, 07 Aug 2019 16:54:02 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 16:55:00] local.DEBUG: Message-ID: <57f67bfc07f035cff37c116807a757fb@meet.com>
+Date: Wed, 07 Aug 2019 16:55:00 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:02:13] local.ERROR: Trying to get property of non-object {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property of non-object at /var/www/html/lara/blog/app/Listeners/SendActivationReminder.php:37)
+[stacktrace]
+#0 /var/www/html/lara/blog/app/Listeners/SendActivationReminder.php(37): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', '/var/www/html/l...', 37, Array)
+#1 [internal function]: App\\Listeners\\SendActivationReminder->handle(Object(App\\Events\\SendEmail))
+#2 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Events/Dispatcher.php(366): call_user_func_array(Array, Array)
+#3 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Events/Dispatcher.php(196): Illuminate\\Events\\Dispatcher->Illuminate\\Events\\{closure}('App\\\\Events\\\\Send...', Array)
+#4 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(482): Illuminate\\Events\\Dispatcher->dispatch('App\\\\Events\\\\Send...')
+#5 /var/www/html/lara/blog/app/Http/Controllers/EventParticipationController.php(94): event(Object(App\\Events\\SendEmail))
+#6 [internal function]: App\\Http\\Controllers\\EventParticipationController->sendWelcomeNotification(Object(App\\EventParticipation))
+#7 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#8 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction('sendWelcomeNoti...', Array)
+#9 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EventParticipationController), 'sendWelcomeNoti...')
+#10 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Route.php(176): Illuminate\\Routing\\Route->runController()
+#11 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(680): Illuminate\\Routing\\Route->run()
+#12 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Auth/Middleware/EnsureEmailIsVerified.php(29): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#14 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#15 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#16 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(75): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /var/www/html/lara/blog/app/Http/Middleware/RedirectIfAuthenticated.php(25): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): App\\Http\\Middleware\\RedirectIfAuthenticated->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#32 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(104): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(682): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#39 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(657): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#40 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(623): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#41 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(612): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#42 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#43 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /var/www/html/lara/blog/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#45 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#48 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#51 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#55 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(62): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#57 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#58 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#59 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(104): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#60 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#61 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#62 /var/www/html/lara/blog/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#63 {main}
+"} 
+[2019-08-07 17:03:40] local.DEBUG: Message-ID: <7f3429711f13bf7f636d77a9b25205f4@meet.com>
+Date: Wed, 07 Aug 2019 17:03:40 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:06:56] local.DEBUG: Message-ID: <16a5e2d74c441d70f3bd27d8d8ee0ba0@meet.com>
+Date: Wed, 07 Aug 2019 17:06:56 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:08:46] local.DEBUG: Message-ID: <edb98c9053b61814ccaaafc5d1fe5943@meet.com>
+Date: Wed, 07 Aug 2019 17:08:46 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:10:23] local.DEBUG: Message-ID: <30112b98124f7024407e4c3dde62edd5@meet.com>
+Date: Wed, 07 Aug 2019 17:10:23 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:11:51] local.DEBUG: Message-ID: <c911ffae737b82bbebc363bd273fb1c4@meet.com>
+Date: Wed, 07 Aug 2019 17:11:51 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:12:36] local.DEBUG: Message-ID: <66b9b7fd2fa711a85e9cf184e2a46bc3@meet.com>
+Date: Wed, 07 Aug 2019 17:12:36 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:13:25] local.DEBUG: Message-ID: <863e24b65471a810934616bf2d9c6b8d@meet.com>
+Date: Wed, 07 Aug 2019 17:13:25 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:13:55] local.DEBUG: Message-ID: <7979e6a95bf075c8c87e33b55d21c351@meet.com>
+Date: Wed, 07 Aug 2019 17:13:55 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:14:41] local.DEBUG: Message-ID: <fd9f66a9cb9ebcc8ee3cdbfe6b7f808d@meet.com>
+Date: Wed, 07 Aug 2019 17:14:41 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:18:07] local.DEBUG: Message-ID: <f10b841b2bed3b1e9bdd89a7f4e0da5c@meet.com>
+Date: Wed, 07 Aug 2019 17:18:07 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:20:06] local.DEBUG: Message-ID: <2a5ec14adf8716ca4c640373d2642f22@meet.com>
+Date: Wed, 07 Aug 2019 17:20:06 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:20:06] local.ERROR: The HTTP status code "64" is not valid. {"userId":1,"exception":"[object] (InvalidArgumentException(code: 0): The HTTP status code \"64\" is not valid. at /var/www/html/lara/blog/vendor/symfony/http-foundation/Response.php:459)
+[stacktrace]
+#0 /var/www/html/lara/blog/vendor/symfony/http-foundation/Response.php(203): Symfony\\Component\\HttpFoundation\\Response->setStatusCode(64)
+#1 /var/www/html/lara/blog/vendor/symfony/http-foundation/JsonResponse.php(44): Symfony\\Component\\HttpFoundation\\Response->__construct('', 64, Array)
+#2 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Http/JsonResponse.php(31): Symfony\\Component\\HttpFoundation\\JsonResponse->__construct(Array, 64, Array)
+#3 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(95): Illuminate\\Http\\JsonResponse->__construct(Array, 64, Array, 0)
+#4 /var/www/html/lara/blog/app/Http/Controllers/EventParticipationController.php(99): Illuminate\\Routing\\ResponseFactory->json(Array, 64)
+#5 [internal function]: App\\Http\\Controllers\\EventParticipationController->sendWelcomeNotification(Object(App\\EventParticipation))
+#6 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#7 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction('sendWelcomeNoti...', Array)
+#8 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EventParticipationController), 'sendWelcomeNoti...')
+#9 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Route.php(176): Illuminate\\Routing\\Route->runController()
+#10 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(680): Illuminate\\Routing\\Route->run()
+#11 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#12 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Auth/Middleware/EnsureEmailIsVerified.php(29): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#14 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(75): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 /var/www/html/lara/blog/app/Http/Middleware/RedirectIfAuthenticated.php(25): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): App\\Http\\Middleware\\RedirectIfAuthenticated->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#31 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#34 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(104): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#37 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(682): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#38 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(657): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#39 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(623): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#40 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(612): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#41 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#42 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#43 /var/www/html/lara/blog/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#47 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#50 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#53 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(62): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#56 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#57 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#58 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(104): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#59 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#60 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#61 /var/www/html/lara/blog/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#62 {main}
+"} 
+[2019-08-07 17:23:35] local.DEBUG: Message-ID: <796469bdbc493bc5a9e8aa6272e55751@meet.com>
+Date: Wed, 07 Aug 2019 17:23:35 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:24:37] local.DEBUG: Message-ID: <0ff0523583e671649bf99c79ed552c34@meet.com>
+Date: Wed, 07 Aug 2019 17:24:37 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:25:01] local.DEBUG: Message-ID: <390b5124e333ed8ab2acadf49ab93d2d@meet.com>
+Date: Wed, 07 Aug 2019 17:25:01 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:25:54] local.DEBUG: Message-ID: <2fa59cb2a18651c38dff7b4633143a85@meet.com>
+Date: Wed, 07 Aug 2019 17:25:54 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:26:36] local.DEBUG: Message-ID: <628ae4b7b3603677a313be70d263db79@meet.com>
+Date: Wed, 07 Aug 2019 17:26:36 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:27:05] local.DEBUG: Message-ID: <c1825e7aff0060059aa7dc18c67d5a06@meet.com>
+Date: Wed, 07 Aug 2019 17:27:05 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:27:54] local.ERROR: Method Illuminate\View\View::__toString() must not throw an exception, caught ErrorException: Use of undefined constant data - assumed 'data' (View: /var/www/html/lara/blog/resources/views/event/show.blade.php) {"userId":1,"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Method Illuminate\\View\\View::__toString() must not throw an exception, caught ErrorException: Use of undefined constant data - assumed 'data' (View: /var/www/html/lara/blog/resources/views/event/show.blade.php) at /var/www/html/lara/blog/app/Http/Controllers/EventController.php:0)
+[stacktrace]
+#0 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(137): Symfony\\Component\\Debug\\Exception\\FatalErrorException->__construct()
+#1 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(123): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalExceptionFromError()
+#2 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\EventController->show()
+#4 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array:{/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:54}()
+#5 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): App\\Http\\Controllers\\EventController->callAction()
+#6 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#7 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Route.php(176): Illuminate\\Routing\\Route->runController()
+#8 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(680): Illuminate\\Routing\\Route->run()
+#9 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php:678-682}()
+#10 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Auth/Middleware/EnsureEmailIsVerified.php(29): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:28-36}()
+#11 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Auth\\Middleware\\EnsureEmailIsVerified->handle()
+#12 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#13 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#14 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#15 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#16 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(75): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#17 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): App\\Http\\Middleware\\VerifyCsrfToken->handle()
+#18 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#19 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#20 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle()
+#21 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#22 /var/www/html/lara/blog/app/Http/Middleware/RedirectIfAuthenticated.php(25): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#23 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): App\\Http\\Middleware\\RedirectIfAuthenticated->handle()
+#24 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#25 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(56): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#26 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Session\\Middleware\\StartSession->handle()
+#27 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#28 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#29 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#30 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#31 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#32 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): App\\Http\\Middleware\\EncryptCookies->handle()
+#33 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#34 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(104): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#35 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(682): Illuminate\\Routing\\Pipeline->then()
+#36 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(657): Illuminate\\Routing\\Router->runRouteWithinStack()
+#37 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(623): Illuminate\\Routing\\Router->runRoute()
+#38 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Router.php(612): Illuminate\\Routing\\Router->dispatchToRoute()
+#39 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch()
+#40 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): App\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:173-177}()
+#41 /var/www/html/lara/blog/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:28-36}()
+#42 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): App\\Http\\Middleware\\TrustProxies->handle()
+#43 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#44 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#45 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#46 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#47 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#48 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): App\\Http\\Middleware\\TrimStrings->handle()
+#49 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#50 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#51 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#52 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#53 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(62): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#54 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(163): App\\Http\\Middleware\\CheckForMaintenanceMode->handle()
+#55 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Routing\\Pipeline->Illuminate\\Pipeline\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:140-169}()
+#56 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(104): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure:/var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:47-59}()
+#57 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Routing\\Pipeline->then()
+#58 /var/www/html/lara/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): App\\Http\\Kernel->sendRequestThroughRouter()
+#59 /var/www/html/lara/blog/public/index.php(55): App\\Http\\Kernel->handle()
+#60 /var/www/html/lara/blog/public/index.php(0): {main}()
+#61 {main}
+"} 
+[2019-08-07 17:28:17] local.DEBUG: Message-ID: <b1c391249bd774fc9319eb358455c0d3@meet.com>
+Date: Wed, 07 Aug 2019 17:28:17 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:28:37] local.DEBUG: Message-ID: <13942ffe7f7cf9d262ce0c7bc9b64bea@meet.com>
+Date: Wed, 07 Aug 2019 17:28:36 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:29:11] local.DEBUG: Message-ID: <8edae7ea1062c91008dae1a5d6d6cdb8@meet.com>
+Date: Wed, 07 Aug 2019 17:29:11 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:29:50] local.DEBUG: Message-ID: <b031ff1dfa35dd0762a7c8418921890a@meet.com>
+Date: Wed, 07 Aug 2019 17:29:50 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:33:52] local.DEBUG: Message-ID: <04ef162167100f1736ab56f7fdab4b44@meet.com>
+Date: Wed, 07 Aug 2019 17:33:52 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:34:39] local.DEBUG: Message-ID: <be32bb050c500aa6f81a01ba31243b6e@meet.com>
+Date: Wed, 07 Aug 2019 17:34:39 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:35:13] local.DEBUG: Message-ID: <66f90f10f3179b117de0311e26063d1f@meet.com>
+Date: Wed, 07 Aug 2019 17:35:13 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:36:03] local.DEBUG: Message-ID: <000a8538065030cccb9681926c313d33@meet.com>
+Date: Wed, 07 Aug 2019 17:36:03 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
+[2019-08-07 17:36:42] local.DEBUG: Message-ID: <c017a43da387e561fc0a3a73eb4123a4@meet.com>
+Date: Wed, 07 Aug 2019 17:36:42 +0000
+Subject: User Registration
+From: bharat.parmar@ia.ooo
+To: tinku@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello tinku,
+
+<br/>
+
+Sie erhalten diese Nachricht, weil Sie sich für das Event Event 1 angemeldet haben test new2 and have not yet confirmed your participation. Make sure not to miss this great opportunity and start improving your networking experience at test new2 by confirming your participation now!
+<br/>
+Before you can start using the MeetingTool, please activate your account by setting a password
+<br/>
+<a href="http://meet.com/activateuserpartcipation/1?signature=cafd1502915ec7295fbea44cd3e479fc54cb94d95b77a6af32f774f341ee77e2">Participate in event!</a>
+<br/>
+Your username for login is: tinku@gmail.com
+<br/>
+<br/>
+If you cannot attend or would prefer not to use the MeetingTool, you can also cancel your participation.  
