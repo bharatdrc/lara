@@ -8,7 +8,7 @@ use App\Rules\uniqueDayStoreRevenue;
 
 class RevenueController extends Controller
 {
-    
+
 
     /**
      * Display a listing of the resource.
@@ -43,7 +43,7 @@ class RevenueController extends Controller
             [
                 'store' => ['required', 'numeric'],
                 'dailyrevenue' => ['required', new uniqueDayStoreRevenue($request->store) ],
-                
+
             ]);
 
         $revenue = \App\revenue::create([

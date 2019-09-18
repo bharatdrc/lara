@@ -32,17 +32,21 @@ class uniqueDayStoreRevenue implements Rule
      */
     public function passes($attribute, $value)
     {
-         $revenues = \App\revenue::find($this->store)->get()->pluck('created_at');
+         $revenueDates = \App\revenue::find($this->store)->get()->pluck('created_at');
+
          $date = new \Carbon\Carbon();
          $todayDate = $date->format('d/m/Y');
-         foreach ($revenues as $key => $value) {
-             if($value->format('d/m/Y') == $todayDate)
+
+         foreach ($revenueDates as $date) {
+
+             if($date->format('d/m/Y') == $todayDate)
              {
                 return false;
                 break;
              }
          }
-         
+         return true;
+
     }
 
     /**
