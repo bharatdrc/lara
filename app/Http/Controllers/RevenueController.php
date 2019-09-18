@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\revenue;
 use Illuminate\Http\Request;
 use App\Rules\uniqueDayStoreRevenue;
+use DB;
 
 class RevenueController extends Controller
 {
@@ -12,12 +13,25 @@ class RevenueController extends Controller
 
     /**
      * Display a listing of the resource.
+     * @param  \Illuminate\Http\Request  $request
      * @param \App\store $store;
      * @return \Illuminate\Http\Response
      */
-    public function index(\App\store $store)
+    public function index(\Illuminate\Http\Request  $request, \App\store $store)
     {
-        return view('store.listrevenue',['store'=>$store]);
+        $storeWithDate = $store;
+
+        if($request->month){
+            $month = $request->month;
+            $storeWithDate=$store::with(['revenues' => function($query) use($month){
+              $query->whereMonth('created_at', $month);
+            }])->get()->first();
+           /* $storeWithDate=$store::with('revenues')->where(DB::raw("MONTH(created_at) = '".(int)$request->month."'"))->get()->first();*/
+            
+        }
+        
+       
+        return view('store.listrevenue',['store'=>$storeWithDate]);
     }
 
 

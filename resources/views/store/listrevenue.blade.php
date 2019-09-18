@@ -4,7 +4,26 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-
+        	<form method="POST" action="{{ route('listrevenue',['store'=>$store]) }}" enctype="multipart/form-data">
+        		@csrf
+	        	<select name="month">
+	        		<option value="1">jan</option>
+	        		<option value="2">feb</option>
+	        		<option value="3">march</option>
+	        		<option value="4">april</option>
+	        		<option value="5">may</option>
+	        		<option value="6">june</option>
+	        		<option value="7">jully</option>
+	        		<option value="8">aug</option>
+	        		<option value="9">sep</option>
+	        		<option value="10">oct</option>
+	        		<option value="11">nov</option>
+	        		<option value="12">dec</option>
+	        	</select>
+	        	<button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+        	</form>
            	<table class="table table-striped">
 	            <thead>
 	                <tr>

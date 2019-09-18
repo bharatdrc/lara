@@ -107,7 +107,7 @@ Route::middleware(['verified'])->group(function () {
 			Route::get('/editstore/{store}', 'StoreController@edit')->name('editstore');
 			Route::post('/updatestore/', 'StoreController@update')->name('updatestore');
 
-			Route::get('/listrevenue/{store}', 'RevenueController@index')->name('listrevenue');
+			Route::any('/listrevenue/{store}', 'RevenueController@index')->name('listrevenue');
 			Route::get('/addrevenue/{store}', 'RevenueController@create')->name('addrevenue');
 			Route::post('/saverevenue/', 'RevenueController@store')->name('saverevenue');
 
